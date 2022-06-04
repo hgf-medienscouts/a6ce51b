@@ -4,12 +4,16 @@
 	<link rel="stylesheet" href="../../assets/css/style.css">
 	<link rel="icon" type="image/x-icon" href="../../favicon.ico">
 	<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet"> 
 	<meta charset="utf-8">
 	<title>
 		𝔈𝔦𝔫 𝔨𝔩𝔢𝔦𝔫𝔢𝔰 𝔔𝔲𝔦𝔷 𝔳𝔬𝔫 𝕰. 𝕽. | Frage 1
 	</title>
+	<script src="https://unpkg.com/vue@3"></script>
 </head>
-<body>
+<body id="app">
 	<script type="text/javascript" src="../../assets/js/script.js"></script>
 	<script type="text/javascript">
         function answer(ans)
@@ -30,7 +34,7 @@
 			Harry-Potter-Quiz - Frage 1
 		</h1>
 		<h2 class="red-color balsamiq-font two-em">
-			Lorem ipsum für Frage 1
+			{{ message }}
 		</h2>
 		<a onclick="answer('a');" class="button special hogwarts-font middle">Antwort A</a>
 		<a onclick="answer('b');" class="button hogwarts-font middle">Antwort B</a>
@@ -39,5 +43,15 @@
 		<a onclick="answer('d');" class="button special hogwarts-font middle">Antwort D</a>
 	</span>
 </body>
-<!--42> I<3You <-->
+<script>
+  const { createApp } = Vue
+
+  createApp({
+    data() {
+      return {
+        message: 'Hello Vue!'
+      }
+    }
+  }).mount('#app')
+</script>
 </html>	
