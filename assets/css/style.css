@@ -1,15 +1,17 @@
-html.hog {
-	background-image: url(../img/Hogwarts.jpg);
+html.med {
+	background-image: url(../img/bg1.jpg);
+	background-color: #4ec0cb;
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: auto 100%;
 	background-attachment: fixed;
 	background-position: center;
 }
 
-html.win {
-	background-image: url(../img/Winkelgasse.jpg);
+html.qpage {
+	background-image: url(../img/bg2.jpg);
+	background-color: #01b1ae;
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: auto 100%;
 	background-attachment: fixed;
 	background-position: center;
 }
@@ -137,10 +139,16 @@ button.special:active,
 	background-color: #f21040;
 }
 
+.button {
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}
+
 @media screen and (max-width: 480px) {
 	button,
 	.button {
 		padding: 0;
+		margin:  0;
 	}
 }
 
@@ -151,21 +159,14 @@ button.special:active,
   transform: translate(-50%, -50%);
 }
 
-@font-face {
-    font-family: 'harry_pregular';
-    src: url('../font/harryp__-webfont.woff2') format('woff2');
-    src: url('../font/harryp__-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-.hogwarts-font {
-	font-family: harry_pregular;
+.ms-font {
+	font-family: 'Courier Prime', monospace;
 }
 
 .light-gray {
 	color: #aaaaaa;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.66);
+	padding: 0.5em;
 }
 
 .red-color {
@@ -229,8 +230,9 @@ table th {
 table thead {
 	border-bottom: solid 2px rgba(144, 144, 144, 0.25);
 }
-@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&display=swap');
 
 .balsamiq-font {
 	font-family: 'Balsamiq Sans', cursive;
@@ -281,17 +283,18 @@ svg {
 
 .nolink {
 	text-decoration: none;
-	color: #aaaaaa;
+	color: #424242;
 	display: block;
 	height: inherit;
 }
 
 .nolink:hover {
-	color: #505050;
+	color: #212121;
 }
 
 .noblock {
 	display: inline-block;
 	vertical-align: middle;
-	height: inherit;
+	position: relative;
+	top: -33%;
 }

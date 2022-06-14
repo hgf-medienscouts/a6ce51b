@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html class="win">
+<html class="qpage">
 <head>
 	<link rel="stylesheet" href="../../assets/css/style.css">
 	<link rel="icon" type="image/x-icon" href="../../favicon.ico">
 	<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet"> 
 	<meta charset="utf-8">
-	<title>
-		𝔈𝔦𝔫 𝔨𝔩𝔢𝔦𝔫𝔢𝔰 𝔔𝔲𝔦𝔷 𝔳𝔬𝔫 𝕰. 𝕽. | Frage 1
-	</title>
 	<script src="https://unpkg.com/vue@3"></script>
 </head>
 <body id="app">
+	<title>
+		Quiz | Frage 
+	</title>
+
 	<script type="text/javascript" src="../../assets/js/script.js"></script>
 	<script type="text/javascript">
         function answer(ans)
@@ -21,26 +19,26 @@
         	window.open("../q2?1="+arguments[0]+"","_self");
         }
 	</script>
-	<span class="hogwarts-font home">
-		<a href="../../" class=nolink>
-			<img src="../../assets/img/hogwarts_logo.png" class="img">
+	<span class="ms-font home">
+		<a href="." class=nolink>
+			<img src="../../assets/img/ms_logo.png" class="img">
 			<div class=noblock>
 				Zum Start
 			</div>
 		</a>
 	</span>
-	<span class="centered hogwarts-font middle">
+	<span class="centered ms-font middle">
 		<h1 class="red-color">
-			Harry-Potter-Quiz - Frage 1
+			Medienscouts-Quiz - Frage {{ q_id }}
 		</h1>
 		<h2 class="red-color balsamiq-font two-em">
 			{{ message }}
 		</h2>
-		<a onclick="answer('a');" class="button special hogwarts-font middle">Antwort A</a>
-		<a onclick="answer('b');" class="button hogwarts-font middle">Antwort B</a>
+		<a onclick="answer('a');" class="button special ms-font middle">Antwort A</a>
+		<a onclick="answer('b');" class="button ms-font middle">Antwort B</a>
 		<br><br>
-		<a onclick="answer('c');" class="button hogwarts-font middle">Antwort C</a>
-		<a onclick="answer('d');" class="button special hogwarts-font middle">Antwort D</a>
+		<a onclick="answer('c');" class="button ms-font middle">Antwort C</a>
+		<a onclick="answer('d');" class="button special ms-font middle">Antwort D</a>
 	</span>
 </body>
 <script>
@@ -49,7 +47,8 @@
   createApp({
     data() {
       return {
-        message: 'Hello Vue!'
+        message: 'Hello Vue!',
+        q_id: '1'
       }
     }
   }).mount('#app')
