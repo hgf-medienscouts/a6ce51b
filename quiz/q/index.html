@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html class="qpage">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+    
 	<link rel="stylesheet" href="../../assets/css/style.css">
 	<link rel="icon" type="image/x-icon" href="../../favicon.ico">
 	<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
@@ -27,61 +31,76 @@
 			</div>
 		</a>
 	</span>
-	<span class="centered ms-font middle light-gray">
-		<h1 class="red-color">
-			Medienscouts-Quiz - Frage {{ number+1 }}
-		</h1>
-		<h2 class="red-color balsamiq-font two-em">
-			<Transition name="fade" mode="out-in">
-				<span v-if="showa">
-					{{ questions[number] }}
-				</span>
-				<span v-if="!showa" class="invisible">
-					{{ questions[number] }}
-				</span>
-			</Transition>
-		</h2>
-		<a @click="answer('a')" class="button special ms-font middle">
-			<Transition name="fade" mode="out-in">
-				<span v-if="show">
-					{{ answers[number][0] }}
-				</span>
-				<span v-if="!show" class="invisible">
-					{{ answers[number][0] }}
-				</span>
-			</Transition>
-		</a>
-		<a @click="answer('b')" class="button ms-font middle">
-			<Transition name="fade" mode="out-in">
-				<span v-if="show">
-					{{ answers[number][1] }}
-				</span>
-				<span v-if="!show" class="invisible">
-					{{ answers[number][1] }}
-				</span>
-			</Transition>
-		</a>
-		<br><br>
-		<a @click="answer('c')" class="button ms-font middle">
-			<Transition name="fade" mode="out-in">
-				<span v-if="show">
-					{{ answers[number][2] }}
-				</span>
-				<span v-if="!show" class="invisible">
-					{{ answers[number][2] }}
-				</span>
-			</Transition>
-		</a>
-		<a @click="answer('d')" class="button special ms-font middle">
-			<Transition name="fade" mode="out-in">
-				<span v-if="show">
-					{{ answers[number][3] }}
-				</span>
-				<span v-if="!show" class="invisible">
-					{{ answers[number][3] }}
-				</span>
-			</Transition>
-		</a>
-	</span>
+	<Transition name="fade" mode="out-in">
+		<span class="centered" v-if="!showb">
+			<div class="atom-spinner atom-scale">
+				<div class="spinner-inner">
+					<div class="spinner-line"></div>
+					<div class="spinner-line"></div>
+					<div class="spinner-line"></div>
+					<!--Chrome renders little circles malformed :(-->
+					<div class="spinner-circle">
+						&#9679;
+					</div>
+				</div>
+			</div>
+		</span>
+		<span class="centered ms-font middle light-gray" v-if="showb">
+			<h1 class="red-color">
+				Medienscouts-Quiz - Frage {{ number+1 }}
+			</h1>
+			<h2 class="red-color balsamiq-font two-em">
+				<Transition name="fade" mode="out-in">
+					<span v-if="showa">
+						{{ questions[number] }}
+					</span>
+					<span v-if="!showa" class="invisible">
+						{{ questions[number] }}
+					</span>
+				</Transition>
+			</h2>
+			<a @click="answer('a')" class="button special ms-font middle">
+				<Transition name="fade" mode="out-in">
+					<span v-if="show">
+						{{ answers[number][0] }}
+					</span>
+					<span v-if="!show" class="invisible">
+						{{ answers[number][0] }}
+					</span>
+				</Transition>
+			</a>
+			<a @click="answer('b')" class="button ms-font middle">
+				<Transition name="fade" mode="out-in">
+					<span v-if="show">
+						{{ answers[number][1] }}
+					</span>
+					<span v-if="!show" class="invisible">
+						{{ answers[number][1] }}
+					</span>
+				</Transition>
+			</a>
+			<br><br>
+			<a @click="answer('c')" class="button ms-font middle">
+				<Transition name="fade" mode="out-in">
+					<span v-if="show">
+						{{ answers[number][2] }}
+					</span>
+					<span v-if="!show" class="invisible">
+						{{ answers[number][2] }}
+					</span>
+				</Transition>
+			</a>
+			<a @click="answer('d')" class="button special ms-font middle">
+				<Transition name="fade" mode="out-in">
+					<span v-if="show">
+						{{ answers[number][3] }}
+					</span>
+					<span v-if="!show" class="invisible">
+						{{ answers[number][3] }}
+					</span>
+				</Transition>
+			</a>
+		</span>
+	</Transition>
 </body>
 </html>

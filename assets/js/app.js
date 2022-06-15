@@ -11,16 +11,26 @@ export default {
 			}*/
 			// show results
 			this.showa = !this.showa;
-			if(this.number >= this.questions.length-1) {
-				window.open("../quiz/results?1="+this.given_answers[0]+"&2="+this.given_answers[1]+"&3="+this.given_answers[2]+"&4="+this.given_answers[3]+"&5="+this.given_answers[4]+"&6="+this.given_answers[5]+"&7="+this.given_answers[6]+"&8="+this.given_answers[7]+"&9="+this.given_answers[8]+"","_self");
-			}
 			var that = this;
+			if(this.number >= this.questions.length-1) {
+				window.open("../results?1="+this.given_answers[0]+"&2="+this.given_answers[1]+"&3="+this.given_answers[2]+"&4="+this.given_answers[3]+"&5="+this.given_answers[4]+"&6="+this.given_answers[5]+"&7="+this.given_answers[6]+"&8="+this.given_answers[7]+"&9="+this.given_answers[8]+"","_self");
+			}
 			setTimeout(function() {
 				that.number++;
 				that.show = !this.show;
 				that.showa = !this.showa;
 			}, 1000);
+		},
+		wait_loader() {
+			this.showb = 0;
+			var that = this
+			setTimeout(function() {
+				that.showb = !that.showb;
+			}, 1000);
 		}
+	},
+	created: function() {
+		this.wait_loader();
 	},
 	data() {
 		return {
@@ -50,7 +60,8 @@ export default {
 			correct_answers: [ 'a', 'b', 'a', 'c', 'd', 'b', 'c', 'a', 'd' ],
 			given_answers: [],
 			show: 1,
-			showa: 1
+			showa: 1,
+			showb: 0
 		}
 	}
 }
