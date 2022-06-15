@@ -15,19 +15,19 @@
 </head>
 <body id="app">
 	<title>
-		Quiz | Frage 
+		Quiz | Frage {{ number+1 }}
 	</title>
 
 	<script type="text/javascript" src="../../assets/js/script.js"></script>
 	<span class="ms-font home">
-		<a href="../../" class=nolink>
+		<a href="../../" class="nolink">
 			<img src="../../assets/img/ms_logo.png" class="img">
-			<div class=noblock>
-				Zum Start
+			<div class="noblock">
+			  Zum Start
 			</div>
 		</a>
 	</span>
-	<span class="centered ms-font middle">
+	<span class="centered ms-font middle light-gray">
 		<h1 class="red-color">
 			Medienscouts-Quiz - Frage {{ number+1 }}
 		</h1>
@@ -44,10 +44,10 @@
 		<a @click="answer('a')" class="button special ms-font middle">
 			<Transition name="fade" mode="out-in">
 				<span v-if="show">
-					{{ answers[number][1] }}
+					{{ answers[number][0] }}
 				</span>
 				<span v-if="!show" class="invisible">
-					{{ answers[number][1] }}
+					{{ answers[number][0] }}
 				</span>
 			</Transition>
 		</a>

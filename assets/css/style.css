@@ -167,12 +167,14 @@ button.special:active,
 	color: #aaaaaa;
 	background-color: rgba(0,0,0,0.66);
 	padding: 0.5em;
+	border-radius: 1em;
 }
 
 .red-color {
 	color: #ff6961;
 	font-size: 4em;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 0.1em;
 }
 
 .red-color-small {

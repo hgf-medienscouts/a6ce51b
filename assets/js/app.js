@@ -4,13 +4,16 @@ export default {
 			this.show = !this.show;
 			this.given_answers.push(ans);
 			console.log(this.given_answers);
-			if(ans == this.correct_answers[this.number]) {
+			/*if(ans == this.correct_answers[this.number]) {
 				alert('Correct');
 			} else {
 				alert('Wrong');
-			}
+			}*/
 			// show results
 			this.showa = !this.showa;
+			if(this.number >= this.questions.length-1) {
+				window.open("../quiz/results?1="+this.given_answers[0]+"&2="+this.given_answers[1]+"&3="+this.given_answers[2]+"&4="+this.given_answers[3]+"&5="+this.given_answers[4]+"&6="+this.given_answers[5]+"&7="+this.given_answers[6]+"&8="+this.given_answers[7]+"&9="+this.given_answers[8]+"","_self");
+			}
 			var that = this;
 			setTimeout(function() {
 				that.number++;
@@ -24,7 +27,7 @@ export default {
 			number: 0,
 			questions: [
 				'Test1',
-				'Test2',
+				'Eine etwas längere Frage, nur um zu sehen ob das auch klappt.',
 				'Test3',
 				'Test4',
 				'Test5',
@@ -35,7 +38,7 @@ export default {
 			],
 			answers: [
 				[ 'F1A1', 'F1A2', 'F1A3', 'F1A4' ],
-				[ 'F2A1', 'F2A2', 'F2A3', 'F2A4' ],
+				[ 'Eine', 'sehr lange', 'also ich meine wirklich sehr sehr sehr sehr sehr lange, so dass man vermuten könnte, sie würde nicht mehr draufpassen, so eine lange', 'Antwort' ],
 				[ 'F3A1', 'F3A2', 'F3A3', 'F3A4' ],
 				[ 'F4A1', 'F4A2', 'F4A3', 'F4A4' ],
 				[ 'F5A1', 'F5A2', 'F5A3', 'F5A4' ],
