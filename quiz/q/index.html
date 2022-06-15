@@ -6,6 +6,12 @@
 	<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
 	<meta charset="utf-8">
 	<script src="https://unpkg.com/vue@3"></script>
+	<script type="module">
+		const{ createApp } = Vue
+		import MainComponent from '../../assets/js/app.js'
+
+		createApp(MainComponent).mount('#app')
+	</script>
 </head>
 <body id="app">
 	<title>
@@ -13,14 +19,8 @@
 	</title>
 
 	<script type="text/javascript" src="../../assets/js/script.js"></script>
-	<script type="text/javascript">
-        function answer(ans)
-        {
-        	window.open("../q2?1="+arguments[0]+"","_self");
-        }
-	</script>
 	<span class="ms-font home">
-		<a href="." class=nolink>
+		<a href="../../" class=nolink>
 			<img src="../../assets/img/ms_logo.png" class="img">
 			<div class=noblock>
 				Zum Start
@@ -29,28 +29,59 @@
 	</span>
 	<span class="centered ms-font middle">
 		<h1 class="red-color">
-			Medienscouts-Quiz - Frage {{ q_id }}
+			Medienscouts-Quiz - Frage {{ number+1 }}
 		</h1>
 		<h2 class="red-color balsamiq-font two-em">
-			{{ message }}
+			<Transition name="fade" mode="out-in">
+				<span v-if="showa">
+					{{ questions[number] }}
+				</span>
+				<span v-if="!showa" class="invisible">
+					{{ questions[number] }}
+				</span>
+			</Transition>
 		</h2>
-		<a onclick="answer('a');" class="button special ms-font middle">Antwort A</a>
-		<a onclick="answer('b');" class="button ms-font middle">Antwort B</a>
+		<a @click="answer('a')" class="button special ms-font middle">
+			<Transition name="fade" mode="out-in">
+				<span v-if="show">
+					{{ answers[number][1] }}
+				</span>
+				<span v-if="!show" class="invisible">
+					{{ answers[number][1] }}
+				</span>
+			</Transition>
+		</a>
+		<a @click="answer('b')" class="button ms-font middle">
+			<Transition name="fade" mode="out-in">
+				<span v-if="show">
+					{{ answers[number][1] }}
+				</span>
+				<span v-if="!show" class="invisible">
+					{{ answers[number][1] }}
+				</span>
+			</Transition>
+		</a>
 		<br><br>
-		<a onclick="answer('c');" class="button ms-font middle">Antwort C</a>
-		<a onclick="answer('d');" class="button special ms-font middle">Antwort D</a>
+		<a @click="answer('c')" class="button ms-font middle">
+			<Transition name="fade" mode="out-in">
+				<span v-if="show">
+					{{ answers[number][2] }}
+				</span>
+				<span v-if="!show" class="invisible">
+					{{ answers[number][2] }}
+				</span>
+			</Transition>
+		</a>
+		<a @click="answer('d')" class="button special ms-font middle">
+			<Transition name="fade" mode="out-in">
+				<span v-if="show">
+					{{ answers[number][3] }}
+				</span>
+				<span v-if="!show" class="invisible">
+					{{ answers[number][3] }}
+				</span>
+			</Transition>
+		</a>
 	</span>
 </body>
-<script>
-  const { createApp } = Vue
-
-  createApp({
-    data() {
-      return {
-        message: 'Hello Vue!',
-        q_id: '1'
-      }
-    }
-  }).mount('#app')
-</script>
-</html>	
+</html>
