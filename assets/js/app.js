@@ -100,47 +100,93 @@ export default {
 				that.d_wrong = false;
 
 				that.number++;
-				that.show = !this.show;
-				that.showq = !this.showq;
+				that.show = true;
+				that.showq = true;
 			}, 1000);
 		},
 		wait_loader() {
 			this.showb = 0;
 			var that = this
 			setTimeout(function() {
-				that.showb = !that.showb;
+				that.showb = true;
 			}, 1000);
+		},
+		getUrlVars() {
+			var vars = [], hash;
+			var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+			for(var i = 0; i < hashes.length; i++)
+			{
+				hash = hashes[i].split('=');
+				vars.push(hash[0]);
+				vars[hash[0]] = hash[1];
+			}
+			this.vars = vars;
+		},
+		get_results() {
+			var rlytrue = 0;
+			
+			var maxval = this.vars.length-1;
+
+			var a = 0;
+			var b = 0;
+			var c = 0;
+			var d = 0;
+			
+			var trueslist = []
+			for(var i = 0; i <= maxval; i++){
+				if (this.vars[i+1] == this.correct_answers[i]) {
+					trueslist.push(1);
+					rlytrue++;
+				} else {
+					trueslist.push(0);
+				}
+				if (this.vars[i+1] == "a") {
+					a++;
+				} else if (this.vars[i+1] == "b") {
+					b++;
+				} else if (this.vars[i+1] == "c") {
+					c++;
+				} else if (this.vars[i+1] == "d") {
+					d++;
+				}
+			}
+
+			var rlyfalse = maxval - rlytrue;
+
+			this.results = [ a,b,c,d,rlytrue,rlyfalse,trueslist,maxval ];
 		}
 	},
 	created: function() {
 		this.wait_loader();
+		this.getUrlVars();
+		this.get_results();
 	},
 	data() {
 		return {
 			number: 0,
 			questions: [
-				'Test1',
-				'Eine etwas längere Frage, nur um zu sehen ob das auch klappt.',
-				'Test3',
-				'Test4',
-				'Test5',
-				'Test6',
-				'Test7',
-				'Test8',
-				'Test9'
+				'Was ist das beliebteste Soziale Medium der Jugendlichen Deutschen?',
+				'Ab welchem Alter darf man offiziell WhatsApp nutzen?',
+				'Für welche Summe hat Facebook Whatsapp 2014 gekauft?',
+				'Wie nennt man die bei Messengern übliche Verschlüsselungs-Methode?',
+				'Welches Profilbild sollte man am ehesten verwenden?',
+				'Wie viele Schüler sind prozentual von Cybermobbing betroffen?',
+				'Was ist das optimalere Passwort?',
+				'Was sollte man tun, wenn man von einem unbekannten\nangeschrieben wird?',
+				'Welche Daten sollte man online Preisgeben?'
 			],
 			answers: [
-				[ 'F1A1', 'F1A2', 'F1A3', 'F1A4' ],
-				[ 'Eine', 'sehr lange', 'also ich meine wirklich sehr sehr sehr sehr sehr lange, so dass man vermuten könnte, sie würde nicht mehr draufpassen, so eine lange', 'Antwort' ],
-				[ 'F3A1', 'F3A2', 'F3A3', 'F3A4' ],
-				[ 'F4A1', 'F4A2', 'F4A3', 'F4A4' ],
-				[ 'F5A1', 'F5A2', 'F5A3', 'F5A4' ],
-				[ 'F6A1', 'F6A2', 'F6A3', 'F6A4' ],
-				[ 'F7A1', 'F7A2', 'F7A3', 'F7A4' ],
-				[ 'F8A1', 'F8A2', 'F8A3', 'F8A4' ],
-				[ 'F9A1', 'F9A2', 'F9A3', 'F9A4' ]
+				[ 'Facebook', 'WhatsApp', 'Tiktok', 'Instagram' ],
+				[ '12 Jahre', '14 Jahre', '16 Jahre', '18 Jahre' ],
+				[ '14 Mio. €', '140 Mio. €', '1.4 Mrd. €', '14 Mrd. €' ],
+				[ 'Ende-zu-Ende', 'SHA-256', 'argon2id', 'Cäsar-Verschlüsselung' ],
+				[ 'Das Stadtschild seines Wohnortes', 'Ein Bild von sich selbst', 'Ein Foto der Schule', 'Einen süẞen Hamster' ],
+				[ '6%', '10%', '21%', '42%' ],
+				[ 'Passwort', 'Baum1234', 'MOgj7u9/0idK!', 'tmLtUkWfaJfkjhq6Xdyp' ], //Meine Oma geht jeden Sonntag um 9:00 in die Kirche!
+				[ 'Direkt nachfragen', 'Persönlich fragen', 'Andere fragen, ob sie die Nummer kennen', 'Alles davon' ],
+				[ 'Gar keine', 'Telefonnummer', 'Adresse', 'Den ganzen Namen' ]
 			],
-			correct_answers: [ 'a', 'b', 'a', 'c', 'd', 'b', 'c', 'a', 'd' ],
+			correct_answers: [ 'b', 'c', 'd', 'a', 'd', 'c', 'c', 'd', 'a' ],
 			given_answers: [],
 			show: true,
 			showq: true,
@@ -160,7 +206,9 @@ export default {
 			d_cw: false,
 			show_next_button: 0,
 			correct_banner: false,
-			wrong_banner: false
+			wrong_banner: false,
+			vars: [],
+			results: []
 		}
 	}
 }

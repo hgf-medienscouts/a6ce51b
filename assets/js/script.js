@@ -14,102 +14,36 @@ function getUrlVars()
 
 
 // Calculate results function.
-function get_results(maxval,first,second,third,fourth,fifth,sixth,seventh,eighth,ninth)
-{
-	var all = ""+arguments[1]+arguments[2]+arguments[3]+arguments[4]+arguments[5]+arguments[6]+arguments[7]+arguments[8]+arguments[9]+"";
-	
-	var firsttrue = "a";
-	var secondtrue = "b";
-	var thirdtrue = "a";
-	var fourthtrue = "c";
-	var fifthtrue = "d";
-	var sixthtrue = "b";
-	var seventhtrue = "c";
-	var eighthtrue = "a";
-	var ninthtrue = "d";
-	
+function get_results(vars, correct_answers) {
 	var rlytrue = 0;
-	var rlyfalse = 0;
 	
-	var maxval = arguments[0];
+	var maxval = vars.length-1;
 
-	const correct_icon = '<span class="material-symbols-outlined correct">check</span>';
-	const incorrect_icon = '<span class="material-symbols-outlined incorrect">dangerous</span>';
-	
 	var a = 0;
 	var b = 0;
 	var c = 0;
 	var d = 0;
 	
-	if (first == firsttrue) {
-		var firstreallytrue = correct_icon;
-		var rlytrue = rlytrue + 1;
-	} else {
-		var firstreallytrue = incorrect_icon;
-	}
-	if (second == secondtrue) {
-		var secondreallytrue = correct_icon;
-		var rlytrue = rlytrue + 1;
-	} else {
-		var secondreallytrue = incorrect_icon;
-	}
-	if (third == thirdtrue) {
-		var thirdreallytrue = correct_icon;
-		var rlytrue = rlytrue + 1;
-	} else {
-		var thirdreallytrue = incorrect_icon;
-	}
-	if (fourth == fourthtrue) {
-		var fourthreallytrue = correct_icon;
-		var rlytrue = rlytrue + 1;
-	} else {
-		var fourthreallytrue = incorrect_icon;
-	}
-	if (fifth == fifthtrue) {
-		var fifthreallytrue = correct_icon;
-		var rlytrue = rlytrue + 1;
-	} else {
-		var fifthreallytrue = incorrect_icon;
-	}
-	if (sixth == sixthtrue) {
-		var sixthreallytrue = correct_icon;
-		var rlytrue = rlytrue + 1;
-	} else {
-		var sixthreallytrue = incorrect_icon;
-	}
-	if (seventh == seventhtrue) {
-		var seventhreallytrue = correct_icon;
-		var rlytrue = rlytrue + 1;
-	} else {
-		var seventhreallytrue = incorrect_icon;
-	}
-	if (eighth == eighthtrue) {
-		var eighthreallytrue = correct_icon;
-		var rlytrue = rlytrue + 1;
-	} else {
-		var eighthreallytrue = incorrect_icon;
-	}
-	if (ninth == ninthtrue) {
-		var ninthreallytrue = correct_icon;
-		var rlytrue = rlytrue + 1;
-	} else {
-		var ninthreallytrue = incorrect_icon;
-	}
-	
-	for (i = 0; i <= maxval; i++) {
-		if (all[i] == "a") {
-			a++
-		} else if (all[i] == "b") {
-			b++
-		} else if (all[i] == "c") {
-			c++
-		} else if (all[i] == "d") {
-			d++
+	var trueslist = []
+	for(var i = 0; i < maxval; i++){
+		if (vars[i+1] == correct_answers[i]) {
+			trueslist.push(1);
+			rlytrue++;
+		} else {
+			trueslist.push(0);
+		}
+		if (vars[i+1] == "a") {
+			a++;
+		} else if (vars[i+1] == "b") {
+			b++;
+		} else if (vars[i+1] == "c") {
+			c++;
+		} else if (vars[i+1] == "d") {
+			d++;
 		}
 	}
 
-
 	var rlyfalse = maxval - rlytrue;
 
-	return[a,b,c,d,rlytrue,rlyfalse,firstreallytrue,secondreallytrue,thirdreallytrue,fourthreallytrue,fifthreallytrue,sixthreallytrue,seventhreallytrue,eighthreallytrue,ninthreallytrue,maxval];
+	return [ a,b,c,d,rlytrue,rlyfalse,maxval ];
 }

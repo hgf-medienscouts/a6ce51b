@@ -16,6 +16,10 @@ html.qpage {
 	background-position: center;
 }
 
+#app {
+	white-space: pre;
+}
+
 input[type="submit"],
 input[type="reset"],
 input[type="button"],
@@ -41,7 +45,6 @@ button,
 	padding: 0 2.2em;
 	text-align: center;
 	text-decoration: none;
-	text-transform: uppercase;
 	white-space: nowrap;
 }
 
@@ -476,4 +479,9 @@ svg {
 
 .banner {
 	transform: scale(5);
+}
+
+.profile-picture {
+	height: auto;
+	width: auto;
 }
