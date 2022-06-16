@@ -5,6 +5,7 @@ export default {
 				var answer_id = "abcd".indexOf(ans);
 				var correct_answer_id = "abcd".indexOf(this.correct_answers[this.number])	;
 				if(answer_id == correct_answer_id) {
+					this.correct_banner = true;
 					switch(answer_id) {
 						case 0:
 							this.a_correct = true;
@@ -25,6 +26,7 @@ export default {
 					}
 
 				} else {
+					this.wrong_banner = true;
 					switch(correct_answer_id) {
 						case 0:
 							this.a_correct = true;
@@ -66,6 +68,11 @@ export default {
 				this.given_answers.push(ans);
 				console.log(this.given_answers);
 				this.show_next_button = true;
+				var that = this;
+				setTimeout(function() {
+					that.correct_banner = false;
+					that.wrong_banner = false;
+				}, 1500);
 			}
 		},
 		next_question() {
@@ -151,7 +158,9 @@ export default {
 			b_cw: false,
 			c_cw: false,
 			d_cw: false,
-			show_next_button: 0
+			show_next_button: 0,
+			correct_banner: false,
+			wrong_banner: false
 		}
 	}
 }
