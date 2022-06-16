@@ -23,7 +23,7 @@
 	<body id="app">
 		<script type="text/javascript" src="../../assets/js/script.js"></script>
 		<script type="text/javascript">
-			var gres = get_results(getUrlVars(), [ 'b', 'c', 'd', 'a', 'd', 'c', 'c', 'd', 'a' ]);
+			var gres = get_results([ 'b', 'c', 'd', 'a', 'd', 'c', 'c', 'd', 'a', 'b' ]);
 		</script>
 		<span class="ms-font home">
 			<a href="../../" class="nolink">
@@ -74,17 +74,17 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr v-for="i in 8">
+											<tr v-for="i in correct_answers.length">
 												<td>
-													{{ i+1 }}
+													{{ i }}
 												</td>
 												<td>
-													{{ questions[i] }}
+													{{ questions[i-1] }}
 												</td>
 												<td>
-													{{ vars[i+1] }}
+													{{ vars[i-1] }}
 												</td>
-												<td v-if="results[6][i]">
+												<td v-if="results[6][i-1]">
 													<span class="material-symbols-outlined correct">
 														check
 													</span>
@@ -134,10 +134,10 @@
 								<div class="balsamiq-font back-box">
 									<br>
 									<div class="green-color-res">
-										<script type="text/javascript">document.write("Richtig: "+gres[4]+" ("+Math.round(((gres[4]/gres.slice(-1))+Number.EPSILON)*100)+"%)");</script>
+										Richtig: {{ results[4] }} ({{ Math.round(((results[4]/results.slice(-1))+Number.EPSILON)*100) }}%)
 									</div>
 									<div class="red-color-res">
-										<script type="text/javascript">document.write("Falsch: "+gres[5]+" ("+Math.round(((gres[5]/gres.slice(-1))+Number.EPSILON)*100)+"%)");</script>
+										Falsch: {{ results[5] }} ({{ Math.round(((results[5]/results.slice(-1))+Number.EPSILON)*100) }}%)
 									</div>
 									<br>
 								</div>
@@ -177,17 +177,8 @@
 								</script>
 								<br><br>
 								<div class="balsamiq-font back-box">
-									<div class="green-strong-color-res">
-										<script type="text/javascript">document.write("A: "+gres[0]+" ("+Math.round(((gres[0]/gres.slice(-1))+Number.EPSILON)*100)+"%)");</script>
-									</div>
-									<div class="yellow-strong-color-res">
-										<script type="text/javascript">document.write("B: "+gres[1]+" ("+Math.round(((gres[1]/gres.slice(-1))+Number.EPSILON)*100)+"%)");</script>
-									</div>
-									<div class="redbrown-strong-color-res">
-										<script type="text/javascript">document.write("C: "+gres[2]+" ("+Math.round(((gres[2]/gres.slice(-1))+Number.EPSILON)*100)+"%)");</script>
-									</div>
-									<div class="brown-strong-color-res">
-										<script type="text/javascript">document.write("D: "+gres[3]+" ("+Math.round(((gres[3]/gres.slice(-1))+Number.EPSILON)*100)+"%)");</script>
+									<div class="results-answer-renderer" v-for="i in 4">
+										{{ 'ABCD'[i-1] }}: {{ results[i-1] }} ({{ Math.round(((results[i-1]/results.slice(-1))+Number.EPSILON)*100) }}%)
 									</div>
 								</div>
 							</td>

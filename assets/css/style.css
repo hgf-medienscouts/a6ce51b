@@ -255,22 +255,6 @@ svg {
 	color: #ff6961;
 }
 
-.green-strong-color-res {
-	color: #9FC088;
-}
-
-.yellow-strong-color-res {
-	color: #E8C07D;
-}
-
-.redbrown-strong-color-res {
-	color: #CC704B;
-}
-
-.brown-strong-color-res {
-	color: #614124;
-}
-
 .back-box {
 	background-color: rgba(128,128,128,0.3);
 }
@@ -484,4 +468,20 @@ svg {
 .profile-picture {
 	height: auto;
 	width: auto;
+}
+
+.results-answer-renderer:nth-child(1) {
+	color: #9FC088;
+}
+
+.results-answer-renderer:nth-child(2) {
+	color: #E8C07D;
+}
+
+.results-answer-renderer:nth-child(3) {
+	color: #CC704B;
+}
+
+.results-answer-renderer:nth-child(4) {
+	color: #614124;
 }

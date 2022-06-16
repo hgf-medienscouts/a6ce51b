@@ -120,12 +120,12 @@ export default {
 				vars.push(hash[0]);
 				vars[hash[0]] = hash[1];
 			}
-			this.vars = vars;
+			this.vars = vars.slice(1);
 		},
 		get_results() {
 			var rlytrue = 0;
 			
-			var maxval = this.vars.length-1;
+			var maxval = this.vars.length;
 
 			var a = 0;
 			var b = 0;
@@ -133,20 +133,20 @@ export default {
 			var d = 0;
 			
 			var trueslist = []
-			for(var i = 0; i <= maxval; i++){
-				if (this.vars[i+1] == this.correct_answers[i]) {
+			for(var i = 0; i < maxval; i++){
+				if (this.vars[i] == this.correct_answers[i]) {
 					trueslist.push(1);
 					rlytrue++;
 				} else {
 					trueslist.push(0);
 				}
-				if (this.vars[i+1] == "a") {
+				if (this.vars[i] == "a") {
 					a++;
-				} else if (this.vars[i+1] == "b") {
+				} else if (this.vars[i] == "b") {
 					b++;
-				} else if (this.vars[i+1] == "c") {
+				} else if (this.vars[i] == "c") {
 					c++;
-				} else if (this.vars[i+1] == "d") {
+				} else if (this.vars[i] == "d") {
 					d++;
 				}
 			}
@@ -165,8 +165,8 @@ export default {
 		return {
 			number: 0,
 			questions: [
-				'Was ist das beliebteste Soziale Medium der Jugendlichen Deutschen?',
-				'Ab welchem Alter darf man offiziell WhatsApp nutzen?',
+				'Was ist das beliebteste Soziale Medium der Deutschen Jugendlichen?',
+				'Ab welchem Alter darf man WhatsApp offiziell nutzen?',
 				'Für welche Summe hat Facebook Whatsapp 2014 gekauft?',
 				'Wie nennt man die bei Messengern übliche Verschlüsselungs-Methode?',
 				'Welches Profilbild sollte man am ehesten verwenden?',

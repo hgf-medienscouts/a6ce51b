@@ -1,6 +1,5 @@
-// Get vars function.
-function getUrlVars()
-{
+// Calculate results function.
+function get_results(correct_answers) {
 	var vars = [], hash;
 	var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
 	for(var i = 0; i < hashes.length; i++)
@@ -9,15 +8,12 @@ function getUrlVars()
 		vars.push(hash[0]);
 		vars[hash[0]] = hash[1];
 	}
-	return vars;
-}
 
+	vars = vars.slice(1)
 
-// Calculate results function.
-function get_results(vars, correct_answers) {
 	var rlytrue = 0;
 	
-	var maxval = vars.length-1;
+	var maxval = vars.length;
 
 	var a = 0;
 	var b = 0;
@@ -26,19 +22,19 @@ function get_results(vars, correct_answers) {
 	
 	var trueslist = []
 	for(var i = 0; i < maxval; i++){
-		if (vars[i+1] == correct_answers[i]) {
+		if (vars[i] == correct_answers[i]) {
 			trueslist.push(1);
 			rlytrue++;
 		} else {
 			trueslist.push(0);
 		}
-		if (vars[i+1] == "a") {
+		if (vars[i] == "a") {
 			a++;
-		} else if (vars[i+1] == "b") {
+		} else if (vars[i] == "b") {
 			b++;
-		} else if (vars[i+1] == "c") {
+		} else if (vars[i] == "c") {
 			c++;
-		} else if (vars[i+1] == "d") {
+		} else if (vars[i] == "d") {
 			d++;
 		}
 	}
