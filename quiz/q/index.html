@@ -3,7 +3,8 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     
 	<link rel="stylesheet" href="../../assets/css/style.css">
 	<link rel="icon" type="image/x-icon" href="../../favicon.ico">
@@ -59,6 +60,7 @@
 					</span>
 				</Transition>
 			</h2>
+			<table><tr><td>
 			<a @click="answer('a')" class="button special ms-font middle">
 				<Transition name="fade-move" mode="out-in">
 					<span 
@@ -116,6 +118,12 @@
 					</span>
 				</Transition>
 			</a>
+		</td></tr><tr><td>
+			<Transition name="fade" mode="out-in">
+				<button @click="next_question()" class="next_button material-symbols-outlined" v-if="show_next_button">navigate_next</button>
+				<button class="invisible next_button material-symbols-outlined" v-if="!show_next_button">navigate_next</button>
+			</Transition>
+		</td></tr></table>
 		</span>
 	</Transition>
 </body>

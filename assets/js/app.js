@@ -1,90 +1,96 @@
 export default {
 	methods: {
 		answer(ans) {
-			var answer_id = "abcd".indexOf(ans);
-			var correct_answer_id = "abcd".indexOf(this.correct_answers[this.number])	;
-			if(answer_id == correct_answer_id) {
-				switch(answer_id) {
-					case 0:
-						this.a_correct = true;
-						this.a_cw = true;
-						break;
-					case 1:
-						this.b_correct = true;
-						this.b_cw = true;
-						break;
-					case 2:
-						this.c_correct = true;
-						this.c_cw = true;
-						break;
-					case 3:
-						this.d_correct = true;
-						this.d_cw = true;
-						break;		
-				}
+			if(!this.show_next_button) {
+				var answer_id = "abcd".indexOf(ans);
+				var correct_answer_id = "abcd".indexOf(this.correct_answers[this.number])	;
+				if(answer_id == correct_answer_id) {
+					switch(answer_id) {
+						case 0:
+							this.a_correct = true;
+							this.a_cw = true;
+							break;
+						case 1:
+							this.b_correct = true;
+							this.b_cw = true;
+							break;
+						case 2:
+							this.c_correct = true;
+							this.c_cw = true;
+							break;
+						case 3:
+							this.d_correct = true;
+							this.d_cw = true;
+							break;		
+					}
 
-			} else {
-				switch(correct_answer_id) {
-					case 0:
-						this.a_correct = true;
-						this.a_cw = true;
-						break;
-					case 1:
-						this.b_correct = true;
-						this.b_cw = true;
-						break;
-					case 2:
-						this.c_correct = true;
-						this.c_cw = true;
-						break;
-					case 3:
-						this.d_correct = true;
-						this.d_cw = true;
-						break;		
+				} else {
+					switch(correct_answer_id) {
+						case 0:
+							this.a_correct = true;
+							this.a_cw = true;
+							break;
+						case 1:
+							this.b_correct = true;
+							this.b_cw = true;
+							break;
+						case 2:
+							this.c_correct = true;
+							this.c_cw = true;
+							break;
+						case 3:
+							this.d_correct = true;
+							this.d_cw = true;
+							break;		
+					}
+					switch(answer_id) {
+						case 0:
+							this.a_wrong = true;
+							this.a_cw = true;
+							break;
+						case 1:
+							this.b_wrong = true;
+							this.b_cw = true;
+							break;
+						case 2:
+							this.c_wrong = true;
+							this.c_cw = true;
+							break;
+						case 3:
+							this.d_wrong = true;
+							this.d_cw = true;
+							break;		
+					}
 				}
-				switch(answer_id) {
-					case 0:
-						this.a_wrong = true;
-						this.a_cw = true;
-						break;
-					case 1:
-						this.b_wrong = true;
-						this.b_cw = true;
-						break;
-					case 2:
-						this.c_wrong = true;
-						this.c_cw = true;
-						break;
-					case 3:
-						this.d_wrong = true;
-						this.d_cw = true;
-						break;		
-				}
+				this.show = false;
+				this.given_answers.push(ans);
+				console.log(this.given_answers);
+				this.show_next_button = true;
 			}
-			this.show = !this.show;
-			this.given_answers.push(ans);
-			console.log(this.given_answers);
-			// show results
-			this.showq = !this.showq;
-			var that = this;
+		},
+		next_question() {
+			this.a_cw = false;
+			this.b_cw = false;
+			this.c_cw = false;
+			this.d_cw = false;
+			this.show_next_button = false;
+
+			this.showq = false;
 
 			if(this.number >= this.questions.length-1) {
 				window.open("../results?1="+this.given_answers[0]+"&2="+this.given_answers[1]+"&3="+this.given_answers[2]+"&4="+this.given_answers[3]+"&5="+this.given_answers[4]+"&6="+this.given_answers[5]+"&7="+this.given_answers[6]+"&8="+this.given_answers[7]+"&9="+this.given_answers[8]+"","_self");
 			}
 
+			var that = this;
 			setTimeout(function() {
 				that.a_correct = false;
 				that.a_wrong = false;
-				that.a_cw = false;
 				that.b_correct = false;
 				that.b_wrong = false;
-				that.b_cw = false;
 				that.c_correct = false;
 				that.c_wrong = false;
-				that.c_cw = false;
 				that.d_correct = false;
 				that.d_wrong = false;
-				that.d_cw = false;
 
 				that.number++;
 				that.show = !this.show;
@@ -144,7 +150,8 @@ export default {
 			a_cw: false,
 			b_cw: false,
 			c_cw: false,
-			d_cw: false
+			d_cw: false,
+			show_next_button: 0
 		}
 	}
 }

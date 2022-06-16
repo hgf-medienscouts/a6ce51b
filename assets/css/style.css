@@ -457,3 +457,12 @@ svg {
 	color: #e60073;
 	text-shadow: 0 0 8px #000, 0 0 10px #000, 0 0 8px #e60073, 0 0 8px #e60073, 0 0 10px #e60073, 0 0 12px #e60073, 0 0 14px #e60073;
 }
+
+.next_button {
+	border-radius: 100%;
+	width: 2em;
+	height: 2em;
+	padding: 0;
+	color: #ffa500;
+	text-shadow: 0 0 10px #000, 0 0 8px #ffa500, 0 0 12px #ffa500, 0 0 14px #ffa500, 0 0 16px #ffa500, 0 0 18px #ffa500;
+}
