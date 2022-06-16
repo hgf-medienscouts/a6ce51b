@@ -51,51 +51,67 @@
 			</h1>
 			<h2 class="red-color balsamiq-font two-em">
 				<Transition name="fade" mode="out-in">
-					<span v-if="showa">
+					<span class="inlineblock" v-if="showq">
 						{{ questions[number] }}
 					</span>
-					<span v-if="!showa" class="invisible">
+					<span class="inlineblock invisible" v-if="!showq">
 						{{ questions[number] }}
 					</span>
 				</Transition>
 			</h2>
 			<a @click="answer('a')" class="button special ms-font middle">
-				<Transition name="fade" mode="out-in">
-					<span v-if="show">
+				<Transition name="fade-move" mode="out-in">
+					<span 
+						class="inlineblock" 
+						:class="{ correct_answer: a_correct, wrong_answer: a_wrong }" 
+						v-if="show || a_cw"
+					>
 						{{ answers[number][0] }}
 					</span>
-					<span v-if="!show" class="invisible">
+					<span class="inlineblock invisible" v-if="!show && !a_cw">
 						{{ answers[number][0] }}
 					</span>
 				</Transition>
 			</a>
 			<a @click="answer('b')" class="button ms-font middle">
-				<Transition name="fade" mode="out-in">
-					<span v-if="show">
+				<Transition name="fade-move" mode="out-in">
+					<span 
+						class="inlineblock" 
+						:class="{ correct_answer: b_correct, wrong_answer: b_wrong }" 
+						v-if="show || b_cw"
+					>
 						{{ answers[number][1] }}
 					</span>
-					<span v-if="!show" class="invisible">
+					<span class="inlineblock invisible" v-if="!show && !b_cw">
 						{{ answers[number][1] }}
 					</span>
 				</Transition>
 			</a>
 			<br><br>
 			<a @click="answer('c')" class="button ms-font middle">
-				<Transition name="fade" mode="out-in">
-					<span v-if="show">
+				<Transition name="fade-move" mode="out-in">
+					<span 
+						class="inlineblock" 
+						:class="{ correct_answer: c_correct, wrong_answer: c_wrong }" 
+						v-if="show || c_cw"
+					>
 						{{ answers[number][2] }}
 					</span>
-					<span v-if="!show" class="invisible">
+					<span class="inlineblock invisible" v-if="!show && !c_cw">
 						{{ answers[number][2] }}
 					</span>
 				</Transition>
 			</a>
 			<a @click="answer('d')" class="button special ms-font middle">
-				<Transition name="fade" mode="out-in">
-					<span v-if="show">
+				<Transition name="fade-move" mode="out-in">
+					<span 
+						class="inlineblock" 
+						:class="{ correct_answer: d_correct, wrong_answer: d_wrong }" 
+						v-if="show || d_cw"
+					>
 						{{ answers[number][3] }}
 					</span>
-					<span v-if="!show" class="invisible">
+					<span class="inlineblock invisible" v-if="!show && !d_cw">
 						{{ answers[number][3] }}
 					</span>
 				</Transition>
