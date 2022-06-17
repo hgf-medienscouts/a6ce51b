@@ -111,7 +111,7 @@ export default {
 				that.showb = true;
 			}, 1000);
 		},
-		getUrlVars() {
+		get_results() {
 			var vars = [], hash;
 			var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
 			for(var i = 0; i < hashes.length; i++)
@@ -121,8 +121,7 @@ export default {
 				vars[hash[0]] = hash[1];
 			}
 			this.vars = vars.slice(1);
-		},
-		get_results() {
+
 			var rlytrue = 0;
 			
 			var maxval = this.vars.length;
@@ -140,14 +139,19 @@ export default {
 				} else {
 					trueslist.push(0);
 				}
-				if (this.vars[i] == "a") {
-					a++;
-				} else if (this.vars[i] == "b") {
-					b++;
-				} else if (this.vars[i] == "c") {
-					c++;
-				} else if (this.vars[i] == "d") {
-					d++;
+				switch(this.vars[i]) {
+					case "a":
+						a++;
+						break;
+					case "b":
+						b++;
+						break;
+					case "c":
+						c++;
+						break;
+					case "d":
+						d++;
+						break;
 				}
 			}
 
@@ -158,12 +162,11 @@ export default {
 	},
 	created: function() {
 		this.wait_loader();
-		this.getUrlVars();
 		this.get_results();
 	},
 	data() {
 		return {
-			number: 0,
+			/* das hier kann man ändern */
 			questions: [
 				'Was ist das beliebteste Soziale Medium der Deutschen Jugendlichen?',
 				'Ab welchem Alter darf man WhatsApp offiziell nutzen?',
@@ -187,6 +190,9 @@ export default {
 				[ 'Gar keine', 'Telefonnummer', 'Adresse', 'Den ganzen Namen' ]
 			],
 			correct_answers: [ 'b', 'c', 'd', 'a', 'd', 'c', 'c', 'd', 'a' ],
+
+			/* das hier sollte man in ruhe lassen */
+			number: 0,
 			given_answers: [],
 			show: true,
 			showq: true,
@@ -209,6 +215,13 @@ export default {
 			wrong_banner: false,
 			vars: [],
 			results: []
+		}
+	},
+	computed: {
+		vueWidthProg () {
+			return {
+				'--percent': 100*(this.number)/(this.correct_answers.length)+'%'
+			}
 		}
 	}
 }
