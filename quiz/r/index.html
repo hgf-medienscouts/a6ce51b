@@ -26,14 +26,7 @@
 		<script type="text/javascript">
 			var gres = get_results([ 'b', 'c', 'd', 'a', 'd', 'c', 'c', 'd', 'a', 'b' ]);
 		</script>
-		<span class="ms-font home">
-			<a href="../../" class="nolink">
-				<img src="../../assets/img/ms_logo.png" class="img">
-				<div class="noblock">
-					Zum Start
-				</div>
-			</a>
-		</span>
+		<span v-html="template1"></span>
 		<Transition name="fade" mode="out-in">
 			<span class="centered" v-if="!showb">
 				<div class="atom-spinner atom-scale">
