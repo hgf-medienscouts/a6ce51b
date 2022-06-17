@@ -275,6 +275,8 @@ svg {
 	color: #424242;
 	display: block;
 	height: inherit;
+	position: relative;
+	z-index: 3;
 }
 
 .nolink:hover {
@@ -562,6 +564,7 @@ html {
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
+
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
@@ -602,6 +605,7 @@ html {
 
 .info-bar-wrapper .info-bar-element:hover {
 	height: 30%;
+
 }
 
 .info-bar-picture {
@@ -640,7 +644,10 @@ html {
 	text-decoration: underline dotted;
 }
 
-
 .info-text > a:visited {
 	color: black;
+}
+
+.info-bar-element:hover > img.invert {
+	filter: invert(100%);
 }
