@@ -27,19 +27,7 @@
 	<script type="text/javascript" src="../../assets/js/script.js"></script>
 	<span v-html="template1"></span>
 	<Transition name="fade" mode="out-in">
-		<span class="centered" v-if="!showb">
-			<div class="atom-spinner atom-scale">
-				<div class="spinner-inner">
-					<div class="spinner-line"></div>
-					<div class="spinner-line"></div>
-					<div class="spinner-line"></div>
-					<!--Chrome renders little circles malformed :(-->
-					<div class="spinner-circle">
-						&#9679;
-					</div>
-				</div>
-			</div>
-		</span>
+		<span v-html="template2"></span>
 		<span class="centered ms-font middle light-gray" v-if="showb">
 			<h1 class="red-color">
 				Medienscouts-Quiz - Frage {{ number+1 }}
