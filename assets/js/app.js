@@ -1,4 +1,9 @@
+import headerComp from '../vue/header.vue'
+
 export default {
+	components: {
+		headerComp
+	},
 	methods: {
 		answer(ans) {
 			if(!this.show_next_button) {

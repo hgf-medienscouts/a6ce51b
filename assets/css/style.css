@@ -570,3 +570,77 @@ html {
 .tooltiptext {
 	transform: translate(-80%, -10px);
 }
+
+/* right info bar */
+
+.centered-right {
+	text-align: right;
+	vertical-align: middle;
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+}
+
+.info-bar-wrapper {
+	margin: 1em;
+	display: inline-block;
+	height: 30%;
+}
+
+.info-bar-element {
+	display: inline-block;
+	height: 20%;
+	transition: height 0.5s ease;
+}
+
+.info-bar-wrapper:hover .info-bar-element {
+	height: 17.5%;
+}
+
+.info-bar-wrapper .info-bar-element:hover {
+	height: 30%;
+}
+
+.info-bar-picture {
+	height: 100%;
+	border-radius: 40%;
+	z-index: 2;
+	position: relative;
+}
+
+.info-text {
+	height: 100%;
+	width: 10em;
+	vertical-align: top;
+	align-items: start;
+	text-align: center;
+	background-color: white;
+	border-radius: 1em;
+	display: inline-flex;
+	opacity: 0;
+	transform: translateX(27.5%);
+	transition: all 0.5s cubic-bezier(.77,0,.18,1);
+	z-index: 1;
+	position: relative;
+	flex-direction: column;
+	padding-right: 5em;
+}
+
+.info-bar-element:hover > .info-text {
+	opacity: 1;
+}
+
+.info-text > a {
+	margin-top: 5%;
+	margin-left: 5%;
+	color: black;
+	text-decoration: underline dotted;
+}
+
+
+.info-text > a:visited {
+	color: black;
+}
