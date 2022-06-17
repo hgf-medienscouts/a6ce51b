@@ -24,7 +24,9 @@
 <body id="app">
 	<span v-html="template1"></span>
 	<Transition name="fade" mode="out-in">
-		<span v-html="template2"></span>
+		<span class="centered" v-if="!showb">
+			<span v-html="template2"></span>
+		</span>
 		<span class="centered ms-font light-gray middle" v-if="showb">
 			<h1 class="three-em">
 				Wilkommen zum Medienscouts-Quiz

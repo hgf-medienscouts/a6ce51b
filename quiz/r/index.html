@@ -28,7 +28,9 @@
 		</script>
 		<span v-html="template1"></span>
 		<Transition name="fade" mode="out-in">
-			<span v-html="template2"></span>
+			<span class="centered" v-if="!showb">
+				<span v-html="template2"></span>
+			</span>
 			<span class="centered middle light-gray" v-if="showb">
 				<h1 class="ms-font light-gray four-em trans-back">
 				Medienscouts-Quiz - Ergebnisse

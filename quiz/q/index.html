@@ -27,7 +27,9 @@
 	<script type="text/javascript" src="../../assets/js/script.js"></script>
 	<span v-html="template1"></span>
 	<Transition name="fade" mode="out-in">
-		<span v-html="template2"></span>
+		<span class="centered" v-if="!showb">
+			<span v-html="template2"></span>
+		</span>
 		<span class="centered ms-font middle light-gray" v-if="showb">
 			<h1 class="red-color">
 				Medienscouts-Quiz - Frage {{ number+1 }}
