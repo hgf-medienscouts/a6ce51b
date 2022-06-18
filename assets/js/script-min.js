@@ -1,0 +1,1 @@
+function get_results(e){for(var i,n=[],t=window.location.href.slice(window.location.href.indexOf("?")+1).split("&"),l=0;l<t.length;l++)i=t[l].split("="),n.push(i[0]),n[i[0]]=i[1];var o=0,r=(n=n.slice(1)).length,s=0,h=0,c=0,f=0,u=[];for(l=0;l<r;l++)n[l]==e[l]?(u.push(1),o++):u.push(0),"a"==n[l]?s++:"b"==n[l]?h++:"c"==n[l]?c++:"d"==n[l]&&f++;return[s,h,c,f,o,r-o,r]}
