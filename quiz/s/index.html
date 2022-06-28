@@ -2,6 +2,28 @@
 <html>
   <script type="text/javascript" src="../../assets/js/script.js"></script>
   <script type="text/javascript">
-    document.location.replace(window.location.href.slice(0, window.location.href.indexOf('?')-2)+"q?s="+window.location.href.slice(window.location.href.indexOf('?') + 6).split("%23")[0].cyb3r()+"&num="+window.location.href.slice(window.location.href.indexOf('?') + 6).split("%23")[1]);
+    var seed = window.location.href.slice(window.location.href.indexOf('?') + 6).split("%23")[0].cyb3r();
+    var num = parseInt(window.location.href.slice(window.location.href.indexOf('?') + 6).split("%23")[1]);
+    if(num >= 36) {
+      num = 36;
+    }
+    var code = Number("0x"+seed).toString(num);
+    var code2 = "";
+    var alphabet = "0123456789abcdefghijklmnopqrstuvwxyz".slice(0,num);
+
+    for(let i = 0; i < code.length; i++) {
+      if(code.slice(0,i).search(code[i]) == -1) {
+        code2 += code[i];
+      }
+    }
+    var code = code2.slice(-num);
+    if(code.length<num){
+      for(let i = 0; i < alphabet.length; i++) {
+        if(code.search(alphabet[i]) == -1) {
+          code += alphabet[i];
+        }
+      }
+    }
+    document.location.replace(window.location.href.slice(0, window.location.href.indexOf('?')-2)+"q?s="+code);
   </script>
 </html>
