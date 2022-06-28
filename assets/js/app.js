@@ -3,7 +3,7 @@ export default {
 		answer(ans) {
 			if(!this.show_next_button) {
 				var answer_id = "abcd".indexOf(ans);
-				var correct_answer_id = "abcd".indexOf(this.correct_answers[this.number])	;
+				var correct_answer_id = "abcd".indexOf(this.correct_answers[this.question_order[this.number]])	;
 				if(answer_id == correct_answer_id) {
 					this.correct_banner = true;
 					switch(answer_id) {
@@ -84,8 +84,16 @@ export default {
 
 			this.showq = false;
 
-			if(this.number >= this.questions.length-1) {
-				window.open("../r?1="+this.given_answers[0]+"&2="+this.given_answers[1]+"&3="+this.given_answers[2]+"&4="+this.given_answers[3]+"&5="+this.given_answers[4]+"&6="+this.given_answers[5]+"&7="+this.given_answers[6]+"&8="+this.given_answers[7]+"&9="+this.given_answers[8]+"","_self");
+			if(this.number >= this.question_order.length-1) {
+				var link = "../r/?s=";
+				link += window.location.href.slice(window.location.href.indexOf('?s=') + 3);
+				for(let i = 0; i < this.question_order.length; i++) {
+					link += "&";
+					link += this.question_order[i];
+					link += "=";
+					link += this.given_answers[this.question_order[i]];
+				}
+				window.open(link,"_self");
 			}
 
 			var that = this;
@@ -113,14 +121,13 @@ export default {
 		},
 		get_results() {
 			var vars = [], hash;
-			var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+			var hashes = window.location.href.slice(window.location.href.indexOf('&') + 1).split('&');
 			for(var i = 0; i < hashes.length; i++)
 			{
 				hash = hashes[i].split('=');
-				vars.push(hash[0]);
-				vars[hash[0]] = hash[1];
+				vars[Number(hash[0])] = hash[1];
 			}
-			this.vars = vars.slice(1);
+			this.vars = vars;
 
 			var rlytrue = 0;
 			
@@ -133,7 +140,7 @@ export default {
 			
 			var trueslist = []
 			for(var i = 0; i < maxval; i++){
-				if (this.vars[i] == this.correct_answers[i]) {
+				if (this.vars[i] == this.correct_answers[this.question_order[i]]) {
 					trueslist.push(1);
 					rlytrue++;
 				} else {
@@ -158,9 +165,18 @@ export default {
 			var rlyfalse = maxval - rlytrue;
 
 			this.results = [ a,b,c,d,rlytrue,rlyfalse,trueslist,maxval ];
+		},
+		load_order() {
+			var numbers = window.location.href.slice(window.location.href.indexOf('?s=') + 3).split("&")[0];
+			var ar = [];
+			for(let i = 0; i < numbers.length; i++) {
+				ar.push("0123456789abcdefghijklmnopqrstuvwxyz".indexOf(numbers[i]));
+			}
+			this.question_order = ar;
 		}
 	},
 	created: function() {
+		this.load_order();
 		this.wait_loader();
 		this.get_results();
 	},
@@ -215,13 +231,14 @@ export default {
 			wrong_banner: false,
 			vars: [],
 			results: [],
-			spinner_template: 	'<div class="atom-spinner atom-scale"><div class="spinner-inner"><div class="spinner-line"></div><div class="spinner-line"></div><div class="spinner-line"></div><!--Chrome renders little circles malformed :(--><div class="spinner-circle">&#9679;</div></div></div>'
+			spinner_template: '<div class="atom-spinner atom-scale"><div class="spinner-inner"><div class="spinner-line"></div><div class="spinner-line"></div><div class="spinner-line"></div><!--Chrome renders little circles malformed :(--><div class="spinner-circle">&#9679;</div></div></div>',
+			question_order: []
 		}
 	},
 	computed: {
 		vueWidthProg () {
 			return {
-				'--percent': 100*(this.number)/(this.correct_answers.length)+'%'
+				'--percent': 100*(this.number)/(this.question_order.length)+'%'
 			}
 		}
 	}

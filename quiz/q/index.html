@@ -14,7 +14,7 @@
 		<script src="https://unpkg.com/vue@3"></script>
 		<script type="module">
 			const{ createApp } = Vue
-			import MainComponent from '../../assets/js/app-min.js'
+			import MainComponent from '../../assets/js/app.js'
 			createApp(MainComponent).mount('#app')
 		</script>
 	</head>
@@ -22,7 +22,6 @@
 		<title>
 		Quiz | Frage {{ number+1 }}
 		</title>
-		<script type="text/javascript" src="../../assets/js/script.js"></script>
 		<span class="ms-font home">
 			<span class="centered-right">
 				<span class="info-bar-wrapper">
@@ -83,10 +82,10 @@
 				<h2 class="red-color balsamiq-font two-em">
 				<Transition name="fade" mode="out-in">
 					<span class="inlineblock" v-if="showq">
-						{{ questions[number] }}
+						{{ questions[question_order[number]] }}
 					</span>
 					<span class="inlineblock invisible" v-if="!showq">
-						{{ questions[number] }}
+						{{ questions[question_order[number]] }}
 					</span>
 				</Transition>
 				</h2>
@@ -98,10 +97,10 @@
 								:class="{ correct_answer: a_correct, wrong_answer: a_wrong }"
 								v-if="show || a_cw"
 								>
-								{{ answers[number][0] }}
+								{{ answers[question_order[number]][0] }}
 							</span>
 							<span class="inlineblock invisible" v-if="!show && !a_cw">
-								{{ answers[number][0] }}
+								{{ answers[question_order[number]][0] }}
 							</span>
 						</Transition>
 					</a>
@@ -112,10 +111,10 @@
 								:class="{ correct_answer: b_correct, wrong_answer: b_wrong }"
 								v-if="show || b_cw"
 								>
-								{{ answers[number][1] }}
+								{{ answers[question_order[number]][1] }}
 							</span>
 							<span class="inlineblock invisible" v-if="!show && !b_cw">
-								{{ answers[number][1] }}
+								{{ answers[question_order[number]][1] }}
 							</span>
 						</Transition>
 					</a>
@@ -127,10 +126,10 @@
 								:class="{ correct_answer: c_correct, wrong_answer: c_wrong }"
 								v-if="show || c_cw"
 								>
-								{{ answers[number][2] }}
+								{{ answers[question_order[number]][2] }}
 							</span>
 							<span class="inlineblock invisible" v-if="!show && !c_cw">
-								{{ answers[number][2] }}
+								{{ answers[question_order[number]][2] }}
 							</span>
 						</Transition>
 					</a>
@@ -141,10 +140,10 @@
 								:class="{ correct_answer: d_correct, wrong_answer: d_wrong }"
 								v-if="show || d_cw"
 								>
-								{{ answers[number][3] }}
+								{{ answers[question_order[number]][3] }}
 							</span>
 							<span class="inlineblock invisible" v-if="!show && !d_cw">
-								{{ answers[number][3] }}
+								{{ answers[question_order[number]][3] }}
 							</span>
 						</Transition>
 					</a>

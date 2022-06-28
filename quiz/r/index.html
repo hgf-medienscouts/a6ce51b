@@ -14,7 +14,7 @@
 		<script src="https://unpkg.com/vue@3"></script>
 		<script type="module">
 			const{ createApp } = Vue
-			import MainComponent from '../../assets/js/app-min.js'
+			import MainComponent from '../../assets/js/app.js'
 			createApp(MainComponent).mount('#app')
 		</script>
 		<title>
@@ -22,7 +22,7 @@
 		</title>
 	</head>
 	<body id="app">
-		<script type="text/javascript" src="../../assets/js/script-min.js"></script>
+		<script type="text/javascript" src="../../assets/js/script.js"></script>
 		<script type="text/javascript">
 			var gres = get_results([ 'b', 'c', 'd', 'a', 'd', 'c', 'c', 'd', 'a', 'b' ]);
 		</script>
@@ -101,17 +101,17 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr v-for="i in correct_answers.length">
+											<tr v-for="i in vars.length">
 												<td>
 													{{ i }}
 												</td>
 												<td>
 													<div class="tooltip">
-														{{ questions[i-1] }}
+														{{ questions[question_order[i-1]] }}
 														<span class="tooltiptext tooltip-right">
-															Gegebene Antwort: {{ answers[i-1]['abcd'.indexOf(vars[i-1])] }}
+															Gegebene Antwort: {{ answers[question_order[i-1]]['abcd'.indexOf(vars[i-1])] }}
 															<br>
-															Richtige Antwort: {{ answers[i-1]['abcd'.indexOf(correct_answers[i-1])] }}
+															Richtige Antwort: {{ answers[question_order[i-1]]['abcd'.indexOf(correct_answers[question_order[i-1]])] }}
 														</span>
 													</div>
 												</td>
