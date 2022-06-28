@@ -16,6 +16,11 @@ html.qpage {
 	background-position: center;
 }
 
+html.bw {
+	display: inline-table;
+	filter: grayscale(100%);
+}
+
 #app {
 	white-space: pre;
 }
@@ -650,4 +655,9 @@ html {
 
 .info-bar-element:hover > img.invert {
 	filter: invert(100%);
+}
+
+input.submit {
+	font-family: "Source Code Pro", monospace;
+	font-size: 1em;
 }
