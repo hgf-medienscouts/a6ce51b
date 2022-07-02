@@ -501,7 +501,7 @@ html {
 
 .progress-container {
 	display: inline-block;
-	width: var(--progress-width);
+	width: calc(2 * var(--progress-width));
 	height: 0.625em;
 	border-color: rgba(128, 128, 128, 0.5);
 	border-style: solid;
@@ -522,7 +522,7 @@ html {
 .centered-top {
 	display: inline-block;
 	height: 100%;
-	width: 100%;
+	width: 50%;
 	position: absolute;
 	top: 0%;
 	left: calc(calc(100% - var(--progress-width)) / 2);
@@ -630,7 +630,7 @@ html {
 	border-radius: 1em;
 	display: inline-flex;
 	opacity: 0;
-	transform: translateX(27.5%);
+	transform: translateX(17.5%);
 	transition: all 0.5s cubic-bezier(.77,0,.18,1);
 	z-index: 1;
 	position: relative;
