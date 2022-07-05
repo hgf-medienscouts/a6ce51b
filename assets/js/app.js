@@ -232,7 +232,8 @@ export default {
 			vars: [],
 			results: [],
 			spinner_template: '<div class="atom-spinner atom-scale"><div class="spinner-inner"><div class="spinner-line"></div><div class="spinner-line"></div><div class="spinner-line"></div><!--Chrome renders little circles malformed :(--><div class="spinner-circle">&#9679;</div></div></div>',
-			question_order: []
+			question_order: [],
+			bw: false
 		}
 	},
 	computed: {

@@ -1,6 +1,6 @@
 html.med {
 	background-image: url(../img/bg1.jpg);
-	background-color: #4ec0cb;
+	background-color: black;
 	background-repeat: no-repeat;
 	background-size: auto 100%;
 	background-attachment: fixed;
@@ -9,7 +9,7 @@ html.med {
 
 html.qpage {
 	background-image: url(../img/bg2.jpg);
-	background-color: #01b1ae;
+	background-color: black;
 	background-repeat: no-repeat;
 	background-size: auto 100%;
 	background-attachment: fixed;

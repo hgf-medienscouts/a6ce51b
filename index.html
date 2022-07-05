@@ -5,6 +5,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		
 		<link rel="stylesheet" href="assets/css/style.css">
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -13,7 +14,7 @@
 		<script src="https://unpkg.com/vue@3"></script>
 		<script type="module">
 			const{ createApp } = Vue
-			import MainComponent from './assets/js/app-min.js'
+			import MainComponent from './assets/js/app.js'
 			createApp(MainComponent).mount('#app')
 		</script>
 		<title>
@@ -21,6 +22,20 @@
 		</title>
 	</head>
 	<body id="app">
+		<button v-on:click="bw=!bw" class="light-changer">
+			<Transition name="fade" mode="out-in">
+				<span class="material-symbols-outlined light-changer" v-if="!bw">light_mode</span>
+				<span class="material-symbols-outlined light-changer" v-else>dark_mode</span>
+			</Transition name="fade" mode="out-in">
+		</button>
+		<Transition>
+			<span v-if="!bw">
+				<link rel="stylesheet" href="assets/css/style.css">
+			</span>
+			<span v-else>
+				<link rel="stylesheet" href="assets/css/style-bw.css">
+			</span>
+		</Transition>
 		<span class="ms-font home">
 			<span class="centered-right">
 				<span class="info-bar-wrapper">
