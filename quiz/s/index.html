@@ -2,8 +2,14 @@
 <html>
   <script type="text/javascript" src="../../assets/js/script.js"></script>
   <script type="text/javascript">
-    var seed = window.location.href.slice(window.location.href.indexOf('?') + 6).split("%23")[0].cyb3r();
-    var num = parseInt(window.location.href.slice(window.location.href.indexOf('?') + 6).split("%23")[1]);
+    var href_ = window.location.href.slice(window.location.href.indexOf('?') + 6).split("%23");
+    if(href_.length<2) {
+      var seed = href_[0].cyb3r();
+      var num = 9;
+    } else {
+      var seed = href_[0].cyb3r();
+      var num = parseInt(href_[1]);
+    }
     if(num >= 36) {
       num = 36;
     }
