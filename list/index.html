@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html style="background-color: black; color: white;">
+  <head>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@3"></script>
+    <script type="module">
+      const{ createApp } = Vue
+      import MainComponent from '../assets/js/listapp.js'
+      createApp(MainComponent).mount('#app')
+    </script>
+    <title>
+      Auswertung
+    </title>
+  </head>
+  <body id="app">
+    <ol>
+      <li v-for="entry in entries.sort(rankingSorter('nums', 'time'))">
+        {{ entry.name }}: {{ entry.time }} sek. @ {{ entry.nums*10 }}% richtig
+      </li>
+    </ol>
+    <table style="width: fit-content; border-style: solid; border-width: 1px;">
+      <tr>
+        <td>
+          Name: 
+        </td>
+        <td colspan="2">
+          <input v-model="centry.name">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Zeit: 
+        </td>
+        <td>
+          <input v-model="centry.time">
+        </td>
+        <td>
+          sek.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Fragen: 
+        </td>
+        <td>
+          <input v-model="centry.nums">
+        </td>
+        <td>
+          / 10
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <input type="submit" value="Eintragen" @click="addEntry()">
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
