@@ -3,7 +3,7 @@ export default {
 		answer(ans) {
 			if(!this.show_next_button) {
 				var answer_id = "abcd".indexOf(ans);
-				var correct_answer_id = "abcd".indexOf(this.correct_answers[this.question_order[this.number]])	;
+				var correct_answer_id = "abcd".indexOf(this.correct_answers[this.question_order[this.number]]);
 				if(answer_id == correct_answer_id) {
 					this.correct_banner = true;
 					switch(answer_id) {
@@ -173,12 +173,19 @@ export default {
 				ar.push("0123456789abcdefghijklmnopqrstuvwxyz".indexOf(numbers[i]));
 			}
 			this.question_order = ar;
+		},
+		load_got_seed() {
+			if(window.location.href.search("/?ns=") != -1) {
+				var got_seed = window.location.href.slice(window.location.href.indexOf('?ns=') + 4).split("&")[0];
+				this.got_seed = got_seed;
+			}
 		}
 	},
 	created: function() {
 		this.load_order();
 		this.wait_loader();
 		this.get_results();
+		this.load_got_seed();
 	},
 	data() {
 		return {
@@ -233,7 +240,8 @@ export default {
 			results: [],
 			spinner_template: '<div class="atom-spinner atom-scale"><div class="spinner-inner"><div class="spinner-line"></div><div class="spinner-line"></div><div class="spinner-line"></div><!--Chrome renders little circles malformed :(--><div class="spinner-circle">&#9679;</div></div></div>',
 			question_order: [],
-			bw: false
+			bw: false,
+			got_seed: ""
 		}
 	},
 	computed: {

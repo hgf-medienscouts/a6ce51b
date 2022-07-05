@@ -92,9 +92,9 @@
 				</h1>
 
 				<form action="quiz/s/">
-					<input type="submit" href="quiz/q/" class="button special middle submit" value="Starte das Quiz">
+					<input type="submit" class="button special middle submit" value="Starte das Quiz">
 					<br><br>
-					<span>Seed: <input type="text" id="seed" name="seed"></span>
+					<span>Seed: <input type="text" id="seed" name="seed" v-model="got_seed"></span>
 				</form>
 			</span>
 		</Transition>

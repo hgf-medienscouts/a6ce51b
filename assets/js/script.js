@@ -66,3 +66,7 @@ String.prototype.cyb3r = function(seed = 0) {
     h2 = Math.imul(h2 ^ (h2>>>16), 2246822507) ^ Math.imul(h1 ^ (h1>>>13), 3266489909);
     return (h2>>>0).toString(16).padStart(8,0)+(h1>>>0).toString(16).padStart(8,0);
 };
+
+function results_back() {
+	window.open("../../?ns="+window.location.href.slice(window.location.href.indexOf('?s=') + 3).split("&")[0].cyb3r(), "_self");
+}
