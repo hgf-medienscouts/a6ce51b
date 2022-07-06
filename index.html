@@ -26,16 +26,11 @@
 			<Transition name="fade" mode="out-in">
 				<span class="material-symbols-outlined light-changer" v-if="!bw">light_mode</span>
 				<span class="material-symbols-outlined light-changer" v-else>dark_mode</span>
-			</Transition name="fade" mode="out-in">
+			</Transition>
 		</button>
-		<Transition>
-			<span v-if="!bw">
-				<link rel="stylesheet" href="assets/css/style.css">
-			</span>
-			<span v-else>
-				<link rel="stylesheet" href="assets/css/style-bw.css">
-			</span>
-		</Transition>
+		<span v-if="bw">
+			<link rel="stylesheet" href="assets/css/style-bw.css">
+		</span>
 		<!--
 		<span class="ms-font home">
 			<span class="centered-right">
