@@ -30,10 +30,10 @@
 		</button>
 		<Transition>
 			<span v-if="!bw">
-				<link rel="stylesheet" href="assets/css/style.css">
+				<link rel="stylesheet" href="../../assets/css/style.css">
 			</span>
 			<span v-else>
-				<link rel="stylesheet" href="assets/css/style-bw.css">
+				<link rel="stylesheet" href="../../assets/css/style-bw.css">
 			</span>
 		</Transition>
 		<script type="text/javascript" src="../../assets/js/script.js"></script>
@@ -97,7 +97,7 @@
 				<table>
 					<tbody>
 						<tr>
-							<td rowspan="2">
+							<td rowspan="3">
 								<div class="table-wrapper balsamiq-font">
 									<table class="red-color-small">
 										<thead>
@@ -149,6 +149,11 @@
 									</table>
 								</div>
 							</td>
+							<td colspan="2" class="timedisplay">
+								Zeit: {{ time }}s
+							</td>
+						</tr>
+						<tr>
 							<td>
 								<svg viewBox="-1 -1 2 2" style="transform: rotate(-90deg)" id="svgone">
 								</svg>
@@ -245,12 +250,12 @@
 							</td>
 							<td>
 								<a onclick="results_back();">
-									<button class="leave-button" href="../../">
-									<span class="material-symbols-outlined leave middle">
-										logout
-									</span>
-									<br>
-									Zurück zum Anfang
+									<button class="leave-button">
+										<span class="material-symbols-outlined leave middle">
+											logout
+										</span>
+										<br>
+										Zurück zum Anfang
 									</button>
 								</a>
 							</td>

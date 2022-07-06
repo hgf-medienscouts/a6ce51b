@@ -93,6 +93,8 @@ export default {
 					link += "=";
 					link += this.given_answers[this.question_order[i]];
 				}
+				var nowtime = Date.now();
+				link += "&time="+(nowtime-this.time)/1000;
 				window.open(link,"_self");
 			}
 
@@ -179,6 +181,12 @@ export default {
 				var got_seed = window.location.href.slice(window.location.href.indexOf('?ns=') + 4).split("&")[0];
 				this.got_seed = got_seed;
 			}
+		},
+		save_time() {
+			this.time = Date.now();
+			if(window.location.href.search("&time=") != -1) {
+				this.time = window.location.href.slice(window.location.href.indexOf('&time=') + 6).split("&")[0];
+			}
 		}
 	},
 	created: function() {
@@ -186,6 +194,7 @@ export default {
 		this.wait_loader();
 		this.get_results();
 		this.load_got_seed();
+		this.save_time();
 	},
 	data() {
 		return {
@@ -241,7 +250,8 @@ export default {
 			spinner_template: '<div class="atom-spinner atom-scale"><div class="spinner-inner"><div class="spinner-line"></div><div class="spinner-line"></div><div class="spinner-line"></div><!--Chrome renders little circles malformed :(--><div class="spinner-circle">&#9679;</div></div></div>',
 			question_order: [],
 			bw: false,
-			got_seed: ""
+			got_seed: "",
+			time: 0
 		}
 	},
 	computed: {

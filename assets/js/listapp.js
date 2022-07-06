@@ -29,7 +29,7 @@ export default {
 			}
 		},
 		addEntry() {
-			this.entries.push({name: this.centry.name, time: parseInt(this.centry.time), nums: parseInt(this.centry.nums)})
+			this.entries.push({name: this.centry.name, time: parseFloat(this.centry.time), nums: parseInt(this.centry.nums)})
 			this.centry = { name: "", time: "", nums: "" }
 		}
 	}
