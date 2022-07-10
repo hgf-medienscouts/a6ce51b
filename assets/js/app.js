@@ -91,7 +91,7 @@ export default {
 					link += "&";
 					link += this.question_order[i];
 					link += "=";
-					link += this.given_answers[this.question_order[i]];
+					link += this.given_answers[i];
 				}
 				var nowtime = Date.now();
 				link += "&time="+(nowtime-this.time)/1000;
@@ -127,13 +127,14 @@ export default {
 			for(var i = 0; i < hashes.length; i++)
 			{
 				hash = hashes[i].split('=');
-				vars[Number(hash[0])] = hash[1];
+				vars.push(hash[1]);
 			}
 			this.vars = vars;
+			console.log(vars);
 
 			var rlytrue = 0;
 			
-			var maxval = this.vars.length;
+			var maxval = this.vars.length-1;
 
 			var a = 0;
 			var b = 0;
@@ -208,10 +209,17 @@ export default {
 				'Wie viele Schüler sind prozentual von Cybermobbing betroffen?',
 				'Was ist das optimalere Passwort?',
 				'Was sollte man tun, wenn man von einem unbekannten\nangeschrieben wird?',
-				'Welche Daten sollte man online Preisgeben?'
+				'Welche Daten sollte man online Preisgeben?', //ab hier nicht von mir
+				'Was ist Discord?',
+				'Wie viel verdient Mark Zuckerberg pro Tag?',
+				'Was ist LinkedIn?',
+				'Was bedeutet finsta?',
+				'Wer hat die meisten Follower auf Instagram?',
+				'Seit wann gibt es Instagram?',
+				'Wie heißt der Vorgänger von TikTok?'
 			],
 			answers: [
-				[ 'Facebook', 'WhatsApp', 'Tiktok', 'Instagram' ],
+				[ 'Facebook', 'WhatsApp', 'TikTok', 'Instagram' ],
 				[ '12 Jahre', '14 Jahre', '16 Jahre', '18 Jahre' ],
 				[ '14 Mio. €', '140 Mio. €', '1.4 Mrd. €', '14 Mrd. €' ],
 				[ 'Ende-zu-Ende', 'SHA-256', 'argon2id', 'Cäsar-Verschlüsselung' ],
@@ -219,9 +227,16 @@ export default {
 				[ '6%', '10%', '21%', '42%' ],
 				[ 'Passwort', 'Baum1234', 'MOgj7u9/0idK!', 'tmLtUkWfaJfkjhq6Xdyp' ], //Meine Oma geht jeden Sonntag um 9:00 in die Kirche!
 				[ 'Direkt nachfragen', 'Persönlich fragen', 'Andere fragen, ob sie die Nummer kennen', 'Alles davon' ],
-				[ 'Gar keine', 'Telefonnummer', 'Adresse', 'Den ganzen Namen' ]
+				[ 'Gar keine', 'Telefonnummer', 'Adresse', 'Den ganzen Namen' ], //ab hier nicht von mir
+				[ 'ein Messenger', 'ein Onlineshop', 'ein Internetbrowser', 'ein Kochbuch' ],
+				[ '10 Mio. €', '30 Mio. €', '60 Mio. €', '90 Mio. €' ],
+				[ 'ein Messenger', 'ein Onlineshop', 'ein Internetbrowser', 'ein Soziales Netzwerk für Geschäftskontakte' ],
+				[ 'fishy Insta(gram)', 'a fork of Insta(gram)', 'fake Insta(gram)', 'Insta(gram) im Deepweb' ],
+				[ 'Cristiano Ronaldo', 'Instagram', 'Justin Bieber', 'Kylie Jenner' ],
+				[ 'Oktober 2010', 'Januar 2009', 'Dezember 2011', 'August 2008' ],
+				[ 'TikTak', 'Musiclaly', 'Tok.Tok', 'Musical.ly' ]
 			],
-			correct_answers: [ 'b', 'c', 'd', 'a', 'd', 'c', 'c', 'd', 'a' ],
+			correct_answers: [ 'b', 'c', 'd', 'a', 'd', 'c', 'c', 'd', 'a', 'a', 'c', 'd', 'c', 'b', 'a', 'd' ],
 
 			/* das hier sollte man in ruhe lassen */
 			number: 0,

@@ -13,7 +13,7 @@ function get_results(correct_answers) {
 	for(var i = 0; i < hashes.length; i++)
 	{
 		hash = hashes[i].split('=');
-		vars[Number(hash[0])] = hash[1];
+		vars.push(hash[1]);
 	}
 
 	var numbers = window.location.href.slice(window.location.href.indexOf('?s=') + 3).split("&")[0];
@@ -24,7 +24,7 @@ function get_results(correct_answers) {
 
 	var rlytrue = 0;
 	
-	var maxval = vars.length;
+	var maxval = vars.length-1;
 
 	var a = 0;
 	var b = 0;
