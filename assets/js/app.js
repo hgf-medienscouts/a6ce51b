@@ -130,7 +130,6 @@ export default {
 				vars.push(hash[1]);
 			}
 			this.vars = vars;
-			console.log(vars);
 
 			var rlytrue = 0;
 			

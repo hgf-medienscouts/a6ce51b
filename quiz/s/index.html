@@ -2,9 +2,7 @@
 <html>
   <script type="text/javascript" src="../../assets/js/script.js"></script>
   <script type="text/javascript">
-    var href_ = window.location.href.slice(window.location.href.indexOf('?') + 6).split("%23");
-    var seed = href_[0].cyb3r();
-    var num = 10;
+    var seed = window.location.href.slice(window.location.href.indexOf('?') + 6).cyb3r();
 
     var code = Number("0x"+seed).toString(16);
     var code2 = "";
@@ -16,13 +14,13 @@
       }
     }
     code = code2;
-    if(code.length<num){
+    if(code.length<10){
       for(let i = 0; i < alphabet.length; i++) {
         if(code.search(alphabet[i]) == -1) {
           code += alphabet[i];
         }
       }
-    var code = code.slice(-num);
+    var code = code.slice(-10);
     }
     document.location.replace(window.location.href.slice(0, window.location.href.indexOf('?')-2)+"q/?s="+code);
   </script>
