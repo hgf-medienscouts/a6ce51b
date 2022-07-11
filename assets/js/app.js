@@ -215,7 +215,8 @@ export default {
 				'Was bedeutet finsta?',
 				'Wer hat die meisten Follower auf Instagram?',
 				'Seit wann gibt es Instagram?',
-				'Wie heißt der Vorgänger von TikTok?'
+				'Wie heißt der Vorgänger von TikTok?',
+				'Wieviel Zeit verbringt ein durchschnittlicher Benutzer\npro Tagin den Sozialen Medien?'
 			],
 			answers: [
 				[ 'Facebook', 'WhatsApp', 'TikTok', 'Instagram' ],
@@ -233,9 +234,10 @@ export default {
 				[ 'fishy Insta(gram)', 'a fork of Insta(gram)', 'fake Insta(gram)', 'Insta(gram) im Deepweb' ],
 				[ 'Cristiano Ronaldo', 'Instagram', 'Justin Bieber', 'Kylie Jenner' ],
 				[ 'Oktober 2010', 'Januar 2009', 'Dezember 2011', 'August 2008' ],
-				[ 'TikTak', 'Musiclaly', 'Tok.Tok', 'Musical.ly' ]
+				[ 'TikTak', 'Musiclaly', 'Tok.Tok', 'Musical.ly' ],
+				[ 'ca 1 Stunde', 'ca 2 Stunden', 'ca 3 Stunden', 'ca 4 Stunden' ]
 			],
-			correct_answers: [ 'b', 'c', 'd', 'a', 'd', 'c', 'c', 'd', 'a', 'a', 'c', 'd', 'c', 'b', 'a', 'd' ],
+			correct_answers: [ 'b', 'c', 'd', 'a', 'd', 'c', 'c', 'd', 'a', 'a', 'c', 'd', 'c', 'b', 'a', 'd', 'b' ],
 
 			/* das hier sollte man in ruhe lassen */
 			number: 0,
