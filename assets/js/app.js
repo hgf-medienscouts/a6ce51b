@@ -216,7 +216,7 @@ export default {
 				'Wer hat die meisten Follower auf Instagram?',
 				'Seit wann gibt es Instagram?',
 				'Wie heißt der Vorgänger von TikTok?',
-				'Wieviel Zeit verbringt ein durchschnittlicher Benutzer\npro Tagin den Sozialen Medien?'
+				'Wieviel Zeit verbringt ein durchschnittlicher Benutzer\npro Tag in den Sozialen Medien?'
 			],
 			answers: [
 				[ 'Facebook', 'WhatsApp', 'TikTok', 'Instagram' ],
