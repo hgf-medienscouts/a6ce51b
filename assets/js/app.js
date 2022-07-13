@@ -216,7 +216,10 @@ export default {
 				'Wer hat die meisten Follower auf Instagram?',
 				'Seit wann gibt es Instagram?',
 				'Wie heißt der Vorgänger von TikTok?',
-				'Wieviel Zeit verbringt ein durchschnittlicher Benutzer\npro Tag in den Sozialen Medien?'
+				'Wieviel Zeit verbringt ein durchschnittlicher Benutzer\npro Tag in den Sozialen Medien?',
+				'Wie wird eine Person genannt, die Fake News aus Vergnügen und für Aufmerksamkeit erstellt?',
+				'YouTube hat eine Plattform für Kinder. Wie heißt sie?',
+				'Wann kam das erste Handy raus?'
 			],
 			answers: [
 				[ 'Facebook', 'WhatsApp', 'TikTok', 'Instagram' ],
@@ -235,9 +238,12 @@ export default {
 				[ 'Cristiano Ronaldo', 'Instagram', 'Justin Bieber', 'Kylie Jenner' ],
 				[ 'Oktober 2010', 'Januar 2009', 'Dezember 2011', 'August 2008' ],
 				[ 'TikTak', 'Musiclaly', 'Tok.Tok', 'Musical.ly' ],
-				[ 'ca 1 Stunde', 'ca 2 Stunden', 'ca 3 Stunden', 'ca 4 Stunden' ]
+				[ 'ca 1 Stunde', 'ca 2 Stunden', 'ca 3 Stunden', 'ca 4 Stunden' ],
+				[ 'Troll', 'Prankster', 'Cyberbully', 'NPC' ],
+				[ 'Kids-TV', 'YouKids', 'YouTube Kids', 'Kids on YouTube' ],
+				[ 'März 1983', 'Januar 1990', 'September 2001', 'Juni 1996' ]
 			],
-			correct_answers: [ 'b', 'c', 'd', 'a', 'd', 'c', 'c', 'd', 'a', 'a', 'c', 'd', 'c', 'b', 'a', 'd', 'b' ],
+			correct_answers: [ 'b', 'c', 'd', 'a', 'd', 'c', 'c', 'd', 'a', 'a', 'c', 'd', 'c', 'b', 'a', 'd', 'b', 'a', 'c', 'a' ],
 
 			/* das hier sollte man in ruhe lassen */
 			number: 0,
