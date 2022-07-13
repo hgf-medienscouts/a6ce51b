@@ -217,7 +217,7 @@ export default {
 				'Seit wann gibt es Instagram?',
 				'Wie heißt der Vorgänger von TikTok?',
 				'Wieviel Zeit verbringt ein durchschnittlicher Benutzer\npro Tag in den Sozialen Medien?',
-				'Wie wird eine Person genannt, die Fake News aus Vergnügen und für Aufmerksamkeit erstellt?',
+				'Wie wird eine Person genannt, die Fake News aus\nVergnügen und für Aufmerksamkeit erstellt?',
 				'YouTube hat eine Plattform für Kinder. Wie heißt sie?',
 				'Wann kam das erste Handy raus?'
 			],
