@@ -4,9 +4,9 @@
   <script type="text/javascript">
     var seed = window.location.href.slice(window.location.href.indexOf('?') + 6).cyb3r();
 
-    var code = Number("0x"+seed).toString(20);
+    var code = Number("0x"+seed).toString(24);
     var code2 = "";
-    var alphabet = "0123456789abcdefghijklmnopqrstuvwxyz".slice(0,20);
+    var alphabet = "0123456789abcdefghijklmnopqrstuvwxyz".slice(0,24);
 
     for(let i = 0; i < code.length; i++) {
       if(code.slice(0,i).search(code[i]) == -1) {
