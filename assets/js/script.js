@@ -25,6 +25,8 @@ function get_results(correct_answers) {
 	var rlytrue = 0;
 	
 	var maxval = vars.length-1;
+	console.log(vars);
+	console.log(maxval);
 
 	var a = 0;
 	var b = 0;
@@ -39,20 +41,25 @@ function get_results(correct_answers) {
 		} else {
 			trueslist.push(0);
 		}
-		if (vars[i] == "a") {
-			a++;
-		} else if (vars[i] == "b") {
-			b++;
-		} else if (vars[i] == "c") {
-			c++;
-		} else if (vars[i] == "d") {
-			d++;
+		switch(vars[i]) {
+			case "a":
+				a++;
+				break;
+			case "b":
+				b++;
+				break;
+			case "c":
+				c++;
+				break;
+			case "d":
+				d++;
+				break;
 		}
 	}
 
 	var rlyfalse = maxval - rlytrue;
 
-	return [ a,b,c,d,rlytrue,rlyfalse,maxval ];
+	return [ a,b,c,d,rlytrue,rlyfalse,trueslist,maxval ];
 }
 
 String.prototype.cyb3r = function(seed = 0) {
