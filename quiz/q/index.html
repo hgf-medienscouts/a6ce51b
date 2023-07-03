@@ -94,11 +94,9 @@
 				</h1>
 				<h2 class="red-color balsamiq-font two-em">
 				<Transition name="fade" mode="out-in">
-					<span class="inlineblock" v-if="showq">
-						{{ questions[question_order[number]] }}
+					<span class="inlineblock" v-if="showq" v-html="questions[question_order[number]]">
 					</span>
-					<span class="inlineblock invisible" v-if="!showq">
-						{{ questions[question_order[number]] }}
+					<span class="inlineblock invisible" v-if="!showq" v-html="questions[question_order[number]]">
 					</span>
 				</Transition>
 				</h2>
@@ -109,11 +107,10 @@
 								class="inlineblock"
 								:class="{ correct_answer: a_correct, wrong_answer: a_wrong }"
 								v-if="show || a_cw"
+								v-html="answers[question_order[number]][0]"
 								>
-								{{ answers[question_order[number]][0] }}
 							</span>
-							<span class="inlineblock invisible" v-if="!show && !a_cw">
-								{{ answers[question_order[number]][0] }}
+							<span class="inlineblock invisible" v-if="!show && !a_cw" v-html="answers[question_order[number]][0]">
 							</span>
 						</Transition>
 					</a>
@@ -123,11 +120,11 @@
 								class="inlineblock"
 								:class="{ correct_answer: b_correct, wrong_answer: b_wrong }"
 								v-if="show || b_cw"
+								v-html="answers[question_order[number]][1]"
 								>
 								{{ answers[question_order[number]][1] }}
 							</span>
-							<span class="inlineblock invisible" v-if="!show && !b_cw">
-								{{ answers[question_order[number]][1] }}
+							<span class="inlineblock invisible" v-if="!show && !b_cw" v-html="answers[question_order[number]][2]">
 							</span>
 						</Transition>
 					</a>
@@ -138,11 +135,10 @@
 								class="inlineblock"
 								:class="{ correct_answer: c_correct, wrong_answer: c_wrong }"
 								v-if="show || c_cw"
+								v-html="answers[question_order[number]][3]"
 								>
-								{{ answers[question_order[number]][2] }}
 							</span>
-							<span class="inlineblock invisible" v-if="!show && !c_cw">
-								{{ answers[question_order[number]][2] }}
+							<span class="inlineblock invisible" v-if="!show && !c_cw" v-html="answers[question_order[number]][3]">
 							</span>
 						</Transition>
 					</a>
@@ -152,11 +148,10 @@
 								class="inlineblock"
 								:class="{ correct_answer: d_correct, wrong_answer: d_wrong }"
 								v-if="show || d_cw"
+								v-html="answers[question_order[number]][4]"
 								>
-								{{ answers[question_order[number]][3] }}
 							</span>
-							<span class="inlineblock invisible" v-if="!show && !d_cw">
-								{{ answers[question_order[number]][3] }}
+							<span class="inlineblock invisible" v-if="!show && !d_cw" v-html="answers[question_order[number]][4]">
 							</span>
 						</Transition>
 					</a>
