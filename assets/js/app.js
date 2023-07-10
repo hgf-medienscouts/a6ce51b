@@ -172,7 +172,7 @@ export default {
 			var numbers = window.location.href.slice(window.location.href.indexOf('?s=') + 3).split("&")[0];
 			var ar = [];
 			for(let i = 0; i < numbers.length; i++) {
-				ar.push("0123456789abcdefghijklmnopqrstuvwxyz".indexOf(numbers[i]));
+				ar.push("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(numbers[i]));
 			}
 			this.question_order = ar;
 		},
