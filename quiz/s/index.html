@@ -2,11 +2,26 @@
 <html>
   <script type="text/javascript" src="../../assets/js/script.js"></script>
   <script type="text/javascript">
-    var seed = window.location.href.slice(window.location.href.indexOf('?') + 6).cyb3r();
+    var loq = 24;
 
-    var code = Number("0x"+seed).toString(24);
+    function makeid(length) {
+
+        let result = '';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const charactersLength = characters.length;
+        let counter = 0;
+        while (counter < length) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+          counter += 1;
+        }
+        return result;
+    }
+
+    var seed = makeid(10).cyb3r();
+
+    var code = Number("0x"+seed).toString(loq);
     var code2 = "";
-    var alphabet = "0123456789abcdefghijklmnopqrstuvwxyz".slice(0,24);
+    var alphabet = "0123456789abcdefghijklmnopqrstuvwxyz".slice(0,loq);
 
     for(let i = 0; i < code.length; i++) {
       if(code.slice(0,i).search(code[i]) == -1) {
