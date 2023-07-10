@@ -22,7 +22,7 @@
     var alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".slice(0,58);
 
     for(let i = 0; i < code.length; i++) {
-      if(code.slice(0,i).search(code[i]) == -1) {
+      if((code.slice(0,i).search(code[i]) == -1) && (alphabet.search(code[i])) >= 0) {
         code2 += code[i];
       }
     }
@@ -34,7 +34,7 @@
         }
       }
     }
-    var code = code.slice(-15);
+    var code = code.slice(0,15);
     document.location.replace(window.location.href.slice(0, window.location.href.indexOf('?')-2)+"q/?s="+code);
   </script>
 </html>
