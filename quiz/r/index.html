@@ -147,7 +147,9 @@
 								</div>
 							</td>
 							<td colspan="2" class="timedisplay">
-								Zeit: {{ String(time).replace(".",",") }} s
+								Punktzahl: {{ results[4] }}
+								<br>
+								Zeit: {{ math.round(time*100) }} s
 							</td>
 						</tr>
 						<tr>
