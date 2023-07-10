@@ -2,8 +2,6 @@
 <html>
   <script type="text/javascript" src="../../assets/js/script.js"></script>
   <script type="text/javascript">
-    var loq = 24;
-
     function makeid(length) {
 
         let result = '';
@@ -19,9 +17,9 @@
 
     var seed = makeid(10).cyb3r();
 
-    var code = Number("0x"+seed).toString(loq);
+    var code = btoa(seed)
     var code2 = "";
-    var alphabet = "0123456789abcdefghijklmnopqrstuvwxyz".slice(0,loq);
+    var alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".slice(0,58);
 
     for(let i = 0; i < code.length; i++) {
       if(code.slice(0,i).search(code[i]) == -1) {
@@ -29,14 +27,14 @@
       }
     }
     code = code2;
-    if(code.length<10){
+    if(code.length<15){
       for(let i = 0; i < alphabet.length; i++) {
         if(code.search(alphabet[i]) == -1) {
           code += alphabet[i];
         }
       }
     }
-    var code = code.slice(-10);
+    var code = code.slice(-15);
     document.location.replace(window.location.href.slice(0, window.location.href.indexOf('?')-2)+"q/?s="+code);
   </script>
 </html>
