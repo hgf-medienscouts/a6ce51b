@@ -205,6 +205,7 @@ button.special:active,
 		text-align: center;
 		vertical-align: middle;
 		scale: 95%;
+		height: auto;
 }
 
 .table-wrapper {
@@ -300,6 +301,7 @@ svg {
 .inlineblock {
 	display: inline-block;
 	transition: color 0.5s ease, text-shadow 0.5s cubic-bezier(.65,.05,.36,1);
+	line-height: 2em;
 }
 
 .fade-enter-active,
