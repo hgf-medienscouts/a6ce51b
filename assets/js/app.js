@@ -76,7 +76,7 @@ export default {
 			}
 		},
 		next_question() {
-			if (show_next_button) {
+			if (this.show_next_button) {
 				this.a_cw = false;
 				this.b_cw = false;
 				this.c_cw = false;
