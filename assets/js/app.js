@@ -76,43 +76,45 @@ export default {
 			}
 		},
 		next_question() {
-			this.a_cw = false;
-			this.b_cw = false;
-			this.c_cw = false;
-			this.d_cw = false;
-			this.show_next_button = false;
-
-			this.showq = false;
-
-			if(this.number >= this.question_order.length-1) {
-				var link = "../r/?s=";
-				link += window.location.href.slice(window.location.href.indexOf('?s=') + 3);
-				for(let i = 0; i < this.question_order.length; i++) {
-					link += "&";
-					link += this.question_order[i];
-					link += "=";
-					link += this.given_answers[i];
+			if (show_next_button) {
+				this.a_cw = false;
+				this.b_cw = false;
+				this.c_cw = false;
+				this.d_cw = false;
+				this.show_next_button = false;
+	
+				this.showq = false;
+	
+				if(this.number >= this.question_order.length-1) {
+					var link = "../r/?s=";
+					link += window.location.href.slice(window.location.href.indexOf('?s=') + 3);
+					for(let i = 0; i < this.question_order.length; i++) {
+						link += "&";
+						link += this.question_order[i];
+						link += "=";
+						link += this.given_answers[i];
+					}
+					var nowtime = Date.now();
+					link += "&time="+(nowtime-this.time)/1000;
+					window.open(link,"_self");
 				}
-				var nowtime = Date.now();
-				link += "&time="+(nowtime-this.time)/1000;
-				window.open(link,"_self");
+	
+				var that = this;
+				setTimeout(function() {
+					that.a_correct = false;
+					that.a_wrong = false;
+					that.b_correct = false;
+					that.b_wrong = false;
+					that.c_correct = false;
+					that.c_wrong = false;
+					that.d_correct = false;
+					that.d_wrong = false;
+	
+					that.number++;
+					that.show = true;
+					that.showq = true;
+				}, 1000);
 			}
-
-			var that = this;
-			setTimeout(function() {
-				that.a_correct = false;
-				that.a_wrong = false;
-				that.b_correct = false;
-				that.b_wrong = false;
-				that.c_correct = false;
-				that.c_wrong = false;
-				that.d_correct = false;
-				that.d_wrong = false;
-
-				that.number++;
-				that.show = true;
-				that.showq = true;
-			}, 1000);
 		},
 		wait_loader() {
 			this.showb = 0;
