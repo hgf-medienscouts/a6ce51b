@@ -191,7 +191,7 @@ export default {
 	},
 	created: function() {
 		this.load_order();
-		this.wait_loader();
+		//this.wait_loader();
 		this.get_results();
 		this.load_got_seed();
 		this.save_time();
@@ -325,7 +325,7 @@ export default {
 			given_answers: [],
 			show: true,
 			showq: true,
-			showb: false,
+			showb: true,
 
 			a_correct: false,
 			b_correct: false,
