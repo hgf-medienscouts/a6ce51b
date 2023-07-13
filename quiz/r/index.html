@@ -120,11 +120,11 @@
 												</td>
 												<td>
 													<div class="tooltip">
-														{{ questions[question_order[i-1]] }}
+														<span v-html="questions[question_order[i-1]]"></span>
 														<span class="tooltiptext tooltip-right">
-															Gegebene Antwort: {{ answers[question_order[i-1]]['abcd'.indexOf(vars[i-1])] }}
+															Gegebene Antwort: <span v-html="answers[question_order[i-1]]['abcd'.indexOf(vars[i-1])]"></span>
 															<br>
-															Richtige Antwort: {{ answers[question_order[i-1]]['abcd'.indexOf(correct_answers[question_order[i-1]])] }}
+															Richtige Antwort: <span v-html="answers[question_order[i-1]]['abcd'.indexOf(correct_answers[question_order[i-1]])]"></span>
 														</span>
 													</div>
 												</td>
