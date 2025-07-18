@@ -594,7 +594,7 @@ export default {
           "MOgj7u9/0idK!",
           "tmLtUkWfaJfkjhq6Xdyp",
         ],
-        correct: "a",
+        correct: "b",
       },
       {
         question: "Was ist Discord?",
@@ -692,7 +692,7 @@ export default {
           "Truth Social",
           "Trump Social",
         ],
-        correct: "d",
+        correct: "c",
       },
       {
         question:
