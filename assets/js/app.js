@@ -270,7 +270,7 @@ export default {
         question: "Was ist der meist gelikete Post auf Instagram?",
         answers: [
           "Ein Bild von einem Ei",
-          "Christian Ronaldo mit <br>seinem Sohn",
+          "Christian Ronaldo lol mit <br>seinem Sohn",
           "Lionel Messi beim Feiern <br>des Welttitels",
           "Kylie Jenner mit ihrer <br>Tochter",
         ],
@@ -594,7 +594,7 @@ export default {
           "MOgj7u9/0idK!",
           "tmLtUkWfaJfkjhq6Xdyp",
         ],
-        correct: "b",
+        correct: "c",
       },
       {
         question: "Was ist Discord?",
