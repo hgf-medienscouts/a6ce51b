@@ -698,7 +698,7 @@ export default {
         question:
           "Wie nennt man ein gefälschtes Video von einer Person, das mithilfe <br>künstlicher Intelligenz erstellt wurde?",
         answers: ["Fake News", "Fakevid", "VidPrank", "Deepfake"],
-        correct: "c",
+        correct: "d",
       },
       {
         question: "Was ist ein Social Bot?",
